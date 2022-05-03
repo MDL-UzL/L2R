@@ -1,0 +1,44 @@
+{
+    "task_name": "CuRIOUS_Val",
+    "evaluation_methods": {
+        "sdlogj": true,
+        "tre": true
+    },
+    "expected_shape": [
+        256,
+        256,
+        288,
+        3
+    ],
+    "eval_pairs": [
+        {
+            "fixed": "./MR/imagesTr/CuRIOUS_MR_0003.nii.gz",
+            "moving": "./US/imagesTr/CuRIOUS_US_0003.nii.gz"
+        },
+        {
+            "fixed": "./MR/imagesTr/CuRIOUS_MR_0006.nii.gz",
+            "moving": "./US/imagesTr/CuRIOUS_US_0006.nii.gz"
+        },
+        {
+            "fixed": "./MR/imagesTr/CuRIOUS_MR_0009.nii.gz",
+            "moving": "./US/imagesTr/CuRIOUS_US_0009.nii.gz"
+        },
+        {
+            "fixed": "./MR/imagesTr/CuRIOUS_MR_0012.nii.gz",
+            "moving": "./US/imagesTr/CuRIOUS_US_0012.nii.gz"
+        },
+        {
+            "fixed": "./MR/imagesTr/CuRIOUS_MR_0015.nii.gz",
+            "moving": "./US/imagesTr/CuRIOUS_US_0015.nii.gz"
+        },
+        {
+            "fixed": "./MR/imagesTr/CuRIOUS_MR_0018.nii.gz",
+            "moving": "./US/imagesTr/CuRIOUS_US_0018.nii.gz"
+        },
+        {
+            "fixed": "./MR/imagesTr/CuRIOUS_MR_0021.nii.gz",
+            "moving": "./US/imagesTr/CuRIOUS_US_0021.nii.gz"
+        }
+    ],
+    "eval_config_version": 0.1
+}
