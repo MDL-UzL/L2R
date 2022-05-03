@@ -13,10 +13,7 @@ from surface_distance import *
 
 import os
 
-# ##Docker PATHS
-# DEFAULT_INPUT_PATH = Path("/input/")
-# DEFAULT_GROUND_TRUTH_PATH = Path("/opt/evaluation/ground-truth/")
-# DEFAULT_EVALUATION_OUTPUT_FILE_PATH = Path("/output/metrics.json")
+
 
 def main(args):
     d_opt=vars(args)
@@ -129,16 +126,22 @@ def main(args):
             "aggregates": aggregated_results
     }}
 
-    print(f'aggregated_results [{name}]: {aggregated_results}')
+    #print(f'aggregated_results [{name}]: {aggregated_results}')
+    print(json.dumps(aggregated_results, indent=4))
     
     with open(os.path.join(DEFAULT_EVALUATION_OUTPUT_FILE_PATH), 'w') as f:
         json.dump(final_results, f, indent=4)
 
 if __name__=="__main__":
-    parser=argparse.ArgumentParser(description="L2R Evaluation script")
+    parser=argparse.ArgumentParser(description='L2R Evaluation script\n'\
+    'Docker PATHS:\n'\
+    'DEFAULT_INPUT_PATH = Path("/input/")\n'\
+    'DEFAULT_GROUND_TRUTH_PATH = Path("/opt/evaluation/ground-truth/")\n'\
+    'DEFAULT_EVALUATION_OUTPUT_FILE_PATH = Path("/output/metrics.json")')
     parser.add_argument("-i","--input", dest="input_path", help="path to deformation_field", default="test")
     parser.add_argument("-d","--data", dest="gt_path", help="path to data", default="ground-truth")
-    parser.add_argument("-o","--output", dest="output_path", help="path to write results(e.g. 'results/metrics.json')", default="metrics2.json")
+    parser.add_argument("-o","--output", dest="output_path", help="path to write results(e.g. 'results/metrics.json')", default="metrics.json")
     parser.add_argument("-c","--config", dest="config_path", help="path to config json-File (e.g. 'evaluation_config.json')", default='ground-truth/evaluation_config.json')   
     args= parser.parse_args()
     main(args)
+    
