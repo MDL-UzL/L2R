@@ -3,8 +3,11 @@ Repository for L2R evaluation files
 
 
 L2RTest: docker image for grand-challenge.org
+
 eval: Files for evaluation
+
 evaluation_configs: config files for evaluations
+
 zero_def_fields: zero_def_fields for all current datasets
 
 
