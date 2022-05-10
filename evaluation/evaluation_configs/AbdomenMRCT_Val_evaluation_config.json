@@ -1,0 +1,39 @@
+{
+    "task_name": "AbdomenMRCT_Val",
+    "evaluation_methods": {
+        "sdlogj": true,
+        "dice": [
+            1,
+            2,
+            3,
+            4
+        ],
+        "hd95": [
+            1,
+            2,
+            3,
+            4
+        ]
+    },
+    "expected_shape": [
+        192,
+        160,
+        192,
+        3
+    ],
+    "eval_pairs": [
+        {
+            "fixed": "./MR/imagesTr/AbdomenMRCT_MR_TCIA0006.nii.gz",
+            "moving": "./CT/imagesTr/AbdomenMRCT_CT_TCIA0006.nii.gz"
+        },
+        {
+            "fixed": "./MR/imagesTr/AbdomenMRCT_MR_TCIA0007.nii.gz",
+            "moving": "./CT/imagesTr/AbdomenMRCT_CT_TCIA0007.nii.gz"
+        },
+        {
+            "fixed": "./MR/imagesTr/AbdomenMRCT_MR_TCIA0008.nii.gz",
+            "moving": "./CT/imagesTr/AbdomenMRCT_CT_TCIA0008.nii.gz"
+        }
+    ],
+    "eval_config_version": 0.1
+}
