@@ -53,8 +53,8 @@ def main(args):
         #print('case',idx)
         case_results={}
 
-        fix_label_path=os.path.join(DEFAULT_GROUND_TRUTH_PATH, pair['fixed'].replace('images','labels'))
-        mov_label_path=os.path.join(DEFAULT_GROUND_TRUTH_PATH, pair['moving'].replace('images','labels'))
+        fix_label_path=os.path.join(DEFAULT_GROUND_TRUTH_PATH, pair['fixed'].replace('images','labels').replace('0000.nii.gz','.nii.gz'))
+        mov_label_path=os.path.join(DEFAULT_GROUND_TRUTH_PATH, pair['moving'].replace('images','labels').replace('0000.nii.gz','.nii.gz'))
         #with nii.gz
         disp_path=os.path.join(DEFAULT_INPUT_PATH, 'disp_{}_{}'.format(pair['fixed'][-11:-7], pair['moving'][-11:]))
         disp_field=nib.load(disp_path).get_fdata()
@@ -65,8 +65,8 @@ def main(args):
 
         ## load files 
         if any([True for eval_ in ['dice','dice_secret','hd95','hd95_secret', 'tre'] if eval_ in evaluation_methods]):
-            spacing_fix=nib.load(os.path.join(DEFAULT_GROUND_TRUTH_PATH, pair['fixed'].replace('.nii.gz','_0000.nii.gz'))).header.get_zooms()[:3]
-            spacing_mov=nib.load(os.path.join(DEFAULT_GROUND_TRUTH_PATH, pair['moving'].replace('.nii.gz','_0000.nii.gz'))).header.get_zooms()[:3]
+            spacing_fix=nib.load(os.path.join(DEFAULT_GROUND_TRUTH_PATH, pair['fixed'])).header.get_zooms()[:3]
+            spacing_mov=nib.load(os.path.join(DEFAULT_GROUND_TRUTH_PATH, pair['moving'])).header.get_zooms()[:3]
 
         if any([True for eval_ in ['dice','dice_secret','hd95','hd95_secret'] if eval_ in evaluation_methods]):
             fixed_seg=nib.load(fix_label_path).get_fdata()
