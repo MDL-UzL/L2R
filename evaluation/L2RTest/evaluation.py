@@ -1,5 +1,3 @@
-#from dis import dis
-#from evalutils.io import CSVLoader, FileLoader, ImageLoader
 import json
 import nibabel as nib
 import os.path
@@ -53,8 +51,8 @@ def main(args):
         #print('case',idx)
         case_results={}
 
-        fix_label_path=os.path.join(DEFAULT_GROUND_TRUTH_PATH, pair['fixed'].replace('images','labels').replace('0000.nii.gz','.nii.gz'))
-        mov_label_path=os.path.join(DEFAULT_GROUND_TRUTH_PATH, pair['moving'].replace('images','labels').replace('0000.nii.gz','.nii.gz'))
+        fix_label_path=os.path.join(DEFAULT_GROUND_TRUTH_PATH, pair['fixed'].replace('images','labels'))
+        mov_label_path=os.path.join(DEFAULT_GROUND_TRUTH_PATH, pair['moving'].replace('images','labels'))
         #with nii.gz
         disp_path=os.path.join(DEFAULT_INPUT_PATH, 'disp_{}_{}'.format(pair['fixed'][-11:-7], pair['moving'][-11:]))
         disp_field=nib.load(disp_path).get_fdata()
@@ -106,8 +104,8 @@ def main(args):
         
         ### TRE
         if 'tre' in evaluation_methods:
-            lms_fix_path = os.path.join(DEFAULT_GROUND_TRUTH_PATH, pair['fixed'].replace('images', 'landmarks').replace('nii.gz','csv'))
-            lms_mov_path = os.path.join(DEFAULT_GROUND_TRUTH_PATH, pair['moving'].replace('images', 'landmarks').replace('nii.gz','csv'))
+            lms_fix_path = os.path.join(DEFAULT_GROUND_TRUTH_PATH, pair['fixed'].replace('images', 'landmarks').replace('.nii.gz','.csv'))
+            lms_mov_path = os.path.join(DEFAULT_GROUND_TRUTH_PATH, pair['moving'].replace('images', 'landmarks').replace('.nii.gz','.csv'))
             fix_lms = np.loadtxt(lms_fix_path, delimiter=',')
             mov_lms = np.loadtxt(lms_mov_path, delimiter=',')
             tre = compute_tre(fix_lms, mov_lms, disp_field ,spacing_fix, spacing_mov)
