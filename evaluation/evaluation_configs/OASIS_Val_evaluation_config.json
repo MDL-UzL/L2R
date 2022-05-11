@@ -85,80 +85,80 @@
     ],
     "eval_pairs": [
         {
-            "fixed": "./MR/imagesTr/OASIS_MR_0395.nii.gz",
-            "moving": "./MR/imagesTr/OASIS_MR_0396.nii.gz"
+            "fixed": "./MR/imagesTr/OASIS_MR_0395_0000.nii.gz",
+            "moving": "./MR/imagesTr/OASIS_MR_0396_0000.nii.gz"
         },
         {
-            "fixed": "./MR/imagesTr/OASIS_MR_0396.nii.gz",
-            "moving": "./MR/imagesTr/OASIS_MR_0397.nii.gz"
+            "fixed": "./MR/imagesTr/OASIS_MR_0396_0000.nii.gz",
+            "moving": "./MR/imagesTr/OASIS_MR_0397_0000.nii.gz"
         },
         {
-            "fixed": "./MR/imagesTr/OASIS_MR_0397.nii.gz",
-            "moving": "./MR/imagesTr/OASIS_MR_0398.nii.gz"
+            "fixed": "./MR/imagesTr/OASIS_MR_0397_0000.nii.gz",
+            "moving": "./MR/imagesTr/OASIS_MR_0398_0000.nii.gz"
         },
         {
-            "fixed": "./MR/imagesTr/OASIS_MR_0398.nii.gz",
-            "moving": "./MR/imagesTr/OASIS_MR_0399.nii.gz"
+            "fixed": "./MR/imagesTr/OASIS_MR_0398_0000.nii.gz",
+            "moving": "./MR/imagesTr/OASIS_MR_0399_0000.nii.gz"
         },
         {
-            "fixed": "./MR/imagesTr/OASIS_MR_0399.nii.gz",
-            "moving": "./MR/imagesTr/OASIS_MR_0400.nii.gz"
+            "fixed": "./MR/imagesTr/OASIS_MR_0399_0000.nii.gz",
+            "moving": "./MR/imagesTr/OASIS_MR_0400_0000.nii.gz"
         },
         {
-            "fixed": "./MR/imagesTr/OASIS_MR_0400.nii.gz",
-            "moving": "./MR/imagesTr/OASIS_MR_0401.nii.gz"
+            "fixed": "./MR/imagesTr/OASIS_MR_0400_0000.nii.gz",
+            "moving": "./MR/imagesTr/OASIS_MR_0401_0000.nii.gz"
         },
         {
-            "fixed": "./MR/imagesTr/OASIS_MR_0401.nii.gz",
-            "moving": "./MR/imagesTr/OASIS_MR_0402.nii.gz"
+            "fixed": "./MR/imagesTr/OASIS_MR_0401_0000.nii.gz",
+            "moving": "./MR/imagesTr/OASIS_MR_0402_0000.nii.gz"
         },
         {
-            "fixed": "./MR/imagesTr/OASIS_MR_0402.nii.gz",
-            "moving": "./MR/imagesTr/OASIS_MR_0403.nii.gz"
+            "fixed": "./MR/imagesTr/OASIS_MR_0402_0000.nii.gz",
+            "moving": "./MR/imagesTr/OASIS_MR_0403_0000.nii.gz"
         },
         {
-            "fixed": "./MR/imagesTr/OASIS_MR_0403.nii.gz",
-            "moving": "./MR/imagesTr/OASIS_MR_0404.nii.gz"
+            "fixed": "./MR/imagesTr/OASIS_MR_0403_0000.nii.gz",
+            "moving": "./MR/imagesTr/OASIS_MR_0404_0000.nii.gz"
         },
         {
-            "fixed": "./MR/imagesTr/OASIS_MR_0404.nii.gz",
-            "moving": "./MR/imagesTr/OASIS_MR_0405.nii.gz"
+            "fixed": "./MR/imagesTr/OASIS_MR_0404_0000.nii.gz",
+            "moving": "./MR/imagesTr/OASIS_MR_0405_0000.nii.gz"
         },
         {
-            "fixed": "./MR/imagesTr/OASIS_MR_0405.nii.gz",
-            "moving": "./MR/imagesTr/OASIS_MR_0406.nii.gz"
+            "fixed": "./MR/imagesTr/OASIS_MR_0405_0000.nii.gz",
+            "moving": "./MR/imagesTr/OASIS_MR_0406_0000.nii.gz"
         },
         {
-            "fixed": "./MR/imagesTr/OASIS_MR_0406.nii.gz",
-            "moving": "./MR/imagesTr/OASIS_MR_0407.nii.gz"
+            "fixed": "./MR/imagesTr/OASIS_MR_0406_0000.nii.gz",
+            "moving": "./MR/imagesTr/OASIS_MR_0407_0000.nii.gz"
         },
         {
-            "fixed": "./MR/imagesTr/OASIS_MR_0407.nii.gz",
-            "moving": "./MR/imagesTr/OASIS_MR_0408.nii.gz"
+            "fixed": "./MR/imagesTr/OASIS_MR_0407_0000.nii.gz",
+            "moving": "./MR/imagesTr/OASIS_MR_0408_0000.nii.gz"
         },
         {
-            "fixed": "./MR/imagesTr/OASIS_MR_0408.nii.gz",
-            "moving": "./MR/imagesTr/OASIS_MR_0409.nii.gz"
+            "fixed": "./MR/imagesTr/OASIS_MR_0408_0000.nii.gz",
+            "moving": "./MR/imagesTr/OASIS_MR_0409_0000.nii.gz"
         },
         {
-            "fixed": "./MR/imagesTr/OASIS_MR_0409.nii.gz",
-            "moving": "./MR/imagesTr/OASIS_MR_0410.nii.gz"
+            "fixed": "./MR/imagesTr/OASIS_MR_0409_0000.nii.gz",
+            "moving": "./MR/imagesTr/OASIS_MR_0410_0000.nii.gz"
         },
         {
-            "fixed": "./MR/imagesTr/OASIS_MR_0410.nii.gz",
-            "moving": "./MR/imagesTr/OASIS_MR_0411.nii.gz"
+            "fixed": "./MR/imagesTr/OASIS_MR_0410_0000.nii.gz",
+            "moving": "./MR/imagesTr/OASIS_MR_0411_0000.nii.gz"
         },
         {
-            "fixed": "./MR/imagesTr/OASIS_MR_0411.nii.gz",
-            "moving": "./MR/imagesTr/OASIS_MR_0412.nii.gz"
+            "fixed": "./MR/imagesTr/OASIS_MR_0411_0000.nii.gz",
+            "moving": "./MR/imagesTr/OASIS_MR_0412_0000.nii.gz"
         },
         {
-            "fixed": "./MR/imagesTr/OASIS_MR_0412.nii.gz",
-            "moving": "./MR/imagesTr/OASIS_MR_0413.nii.gz"
+            "fixed": "./MR/imagesTr/OASIS_MR_0412_0000.nii.gz",
+            "moving": "./MR/imagesTr/OASIS_MR_0413_0000.nii.gz"
         },
         {
-            "fixed": "./MR/imagesTr/OASIS_MR_0413.nii.gz",
-            "moving": "./MR/imagesTr/OASIS_MR_0414.nii.gz"
+            "fixed": "./MR/imagesTr/OASIS_MR_0413_0000.nii.gz",
+            "moving": "./MR/imagesTr/OASIS_MR_0414_0000.nii.gz"
         }
     ],
     "eval_config_version": 0.1

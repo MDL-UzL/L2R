@@ -16,7 +16,7 @@ import os
 
 def main(args):
     d_opt=vars(args)
-
+    verbose=d_opt['verbose']
     DEFAULT_INPUT_PATH=Path(d_opt['input_path'])
     DEFAULT_GROUND_TRUTH_PATH=Path(d_opt['gt_path'])
     DEFAULT_CONFIG_JSON_PATH=Path(d_opt['config_path'])
@@ -35,7 +35,7 @@ def main(args):
     
     #Check if files are complete beforehand
     for idx, pair in enumerate(eval_pairs):
-        disp_name='disp_{}_{}'.format(pair['fixed'][-11:-7], pair['moving'][-11:])
+        disp_name='disp_{}_{}'.format(pair['fixed'][-16:-12], pair['moving'][-16:-12]+'.nii.gz')
         disp_path=os.path.join(DEFAULT_INPUT_PATH, disp_name)
         if os.path.isfile(disp_path):
             continue
@@ -45,8 +45,8 @@ def main(args):
     #Dataframe for Case results
     cases_results=pandas.DataFrame()
 
-
-    print(f"Evaluate for: {evaluation_methods}")
+    if verbose:
+        print(f"Evaluate for: {evaluation_methods}")
     for idx, pair in enumerate(eval_pairs):
         ## get paths
         #print('case',idx)
@@ -55,7 +55,7 @@ def main(args):
         fix_label_path=os.path.join(DEFAULT_GROUND_TRUTH_PATH, pair['fixed'].replace('images','labels'))
         mov_label_path=os.path.join(DEFAULT_GROUND_TRUTH_PATH, pair['moving'].replace('images','labels'))
         #with nii.gz
-        disp_path=os.path.join(DEFAULT_INPUT_PATH, 'disp_{}_{}'.format(pair['fixed'][-11:-7], pair['moving'][-11:]))
+        disp_path=os.path.join(DEFAULT_INPUT_PATH, 'disp_{}_{}'.format(pair['fixed'][-16:-12], pair['moving'][-16:-12]+'.nii.gz'))
         disp_field=nib.load(disp_path).get_fdata()
 
         shape = np.array(disp_field.shape)
@@ -111,8 +111,8 @@ def main(args):
             mov_lms = np.loadtxt(lms_mov_path, delimiter=',')
             tre = compute_tre(fix_lms, mov_lms, disp_field ,spacing_fix, spacing_mov)
             case_results['TRE']=tre.mean()
-        
-        print(f'case_results [{idx}]: {case_results}')
+        if verbose:
+            print(f'case_results [{idx}]: {case_results}')
         cases_results=pandas.concat([cases_results, pandas.DataFrame(case_results, index=[0])], ignore_index=True)
 
     aggregated_results={}
@@ -126,7 +126,8 @@ def main(args):
     }}
 
     #print(f'aggregated_results [{name}]: {aggregated_results}')
-    print(json.dumps(aggregated_results, indent=4))
+    if verbose:
+        print(json.dumps(aggregated_results, indent=4))
     
     with open(os.path.join(DEFAULT_EVALUATION_OUTPUT_FILE_PATH), 'w') as f:
         json.dump(final_results, f, indent=4)
@@ -140,7 +141,8 @@ if __name__=="__main__":
     parser.add_argument("-i","--input", dest="input_path", help="path to deformation_field", default="test")
     parser.add_argument("-d","--data", dest="gt_path", help="path to data", default="ground-truth")
     parser.add_argument("-o","--output", dest="output_path", help="path to write results(e.g. 'results/metrics.json')", default="metrics.json")
-    parser.add_argument("-c","--config", dest="config_path", help="path to config json-File (e.g. 'evaluation_config.json')", default='ground-truth/evaluation_config.json')   
+    parser.add_argument("-c","--config", dest="config_path", help="path to config json-File (e.g. 'evaluation_config.json')", default='ground-truth/evaluation_config.json') 
+    parser.add_argument("-v","--verbose", dest="verbose", action=argparse.BooleanOptionalAction, default=False)
     args= parser.parse_args()
     main(args)
     

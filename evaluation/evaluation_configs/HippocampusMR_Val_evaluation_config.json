@@ -19,244 +19,244 @@
     ],
     "eval_pairs": [
         {
-            "fixed": "./MR/imagesTr/HippocampusMR_MR_0201.nii.gz",
-            "moving": "./MR/imagesTr/HippocampusMR_MR_0260.nii.gz"
+            "fixed": "./MR/imagesTr/HippocampusMR_MR_0201_0000.nii.gz",
+            "moving": "./MR/imagesTr/HippocampusMR_MR_0260_0000.nii.gz"
         },
         {
-            "fixed": "./MR/imagesTr/HippocampusMR_MR_0202.nii.gz",
-            "moving": "./MR/imagesTr/HippocampusMR_MR_0259.nii.gz"
+            "fixed": "./MR/imagesTr/HippocampusMR_MR_0202_0000.nii.gz",
+            "moving": "./MR/imagesTr/HippocampusMR_MR_0259_0000.nii.gz"
         },
         {
-            "fixed": "./MR/imagesTr/HippocampusMR_MR_0203.nii.gz",
-            "moving": "./MR/imagesTr/HippocampusMR_MR_0258.nii.gz"
+            "fixed": "./MR/imagesTr/HippocampusMR_MR_0203_0000.nii.gz",
+            "moving": "./MR/imagesTr/HippocampusMR_MR_0258_0000.nii.gz"
         },
         {
-            "fixed": "./MR/imagesTr/HippocampusMR_MR_0204.nii.gz",
-            "moving": "./MR/imagesTr/HippocampusMR_MR_0257.nii.gz"
+            "fixed": "./MR/imagesTr/HippocampusMR_MR_0204_0000.nii.gz",
+            "moving": "./MR/imagesTr/HippocampusMR_MR_0257_0000.nii.gz"
         },
         {
-            "fixed": "./MR/imagesTr/HippocampusMR_MR_0205.nii.gz",
-            "moving": "./MR/imagesTr/HippocampusMR_MR_0256.nii.gz"
+            "fixed": "./MR/imagesTr/HippocampusMR_MR_0205_0000.nii.gz",
+            "moving": "./MR/imagesTr/HippocampusMR_MR_0256_0000.nii.gz"
         },
         {
-            "fixed": "./MR/imagesTr/HippocampusMR_MR_0206.nii.gz",
-            "moving": "./MR/imagesTr/HippocampusMR_MR_0255.nii.gz"
+            "fixed": "./MR/imagesTr/HippocampusMR_MR_0206_0000.nii.gz",
+            "moving": "./MR/imagesTr/HippocampusMR_MR_0255_0000.nii.gz"
         },
         {
-            "fixed": "./MR/imagesTr/HippocampusMR_MR_0207.nii.gz",
-            "moving": "./MR/imagesTr/HippocampusMR_MR_0254.nii.gz"
+            "fixed": "./MR/imagesTr/HippocampusMR_MR_0207_0000.nii.gz",
+            "moving": "./MR/imagesTr/HippocampusMR_MR_0254_0000.nii.gz"
         },
         {
-            "fixed": "./MR/imagesTr/HippocampusMR_MR_0208.nii.gz",
-            "moving": "./MR/imagesTr/HippocampusMR_MR_0253.nii.gz"
+            "fixed": "./MR/imagesTr/HippocampusMR_MR_0208_0000.nii.gz",
+            "moving": "./MR/imagesTr/HippocampusMR_MR_0253_0000.nii.gz"
         },
         {
-            "fixed": "./MR/imagesTr/HippocampusMR_MR_0209.nii.gz",
-            "moving": "./MR/imagesTr/HippocampusMR_MR_0252.nii.gz"
+            "fixed": "./MR/imagesTr/HippocampusMR_MR_0209_0000.nii.gz",
+            "moving": "./MR/imagesTr/HippocampusMR_MR_0252_0000.nii.gz"
         },
         {
-            "fixed": "./MR/imagesTr/HippocampusMR_MR_0210.nii.gz",
-            "moving": "./MR/imagesTr/HippocampusMR_MR_0251.nii.gz"
+            "fixed": "./MR/imagesTr/HippocampusMR_MR_0210_0000.nii.gz",
+            "moving": "./MR/imagesTr/HippocampusMR_MR_0251_0000.nii.gz"
         },
         {
-            "fixed": "./MR/imagesTr/HippocampusMR_MR_0211.nii.gz",
-            "moving": "./MR/imagesTr/HippocampusMR_MR_0250.nii.gz"
+            "fixed": "./MR/imagesTr/HippocampusMR_MR_0211_0000.nii.gz",
+            "moving": "./MR/imagesTr/HippocampusMR_MR_0250_0000.nii.gz"
         },
         {
-            "fixed": "./MR/imagesTr/HippocampusMR_MR_0212.nii.gz",
-            "moving": "./MR/imagesTr/HippocampusMR_MR_0249.nii.gz"
+            "fixed": "./MR/imagesTr/HippocampusMR_MR_0212_0000.nii.gz",
+            "moving": "./MR/imagesTr/HippocampusMR_MR_0249_0000.nii.gz"
         },
         {
-            "fixed": "./MR/imagesTr/HippocampusMR_MR_0213.nii.gz",
-            "moving": "./MR/imagesTr/HippocampusMR_MR_0248.nii.gz"
+            "fixed": "./MR/imagesTr/HippocampusMR_MR_0213_0000.nii.gz",
+            "moving": "./MR/imagesTr/HippocampusMR_MR_0248_0000.nii.gz"
         },
         {
-            "fixed": "./MR/imagesTr/HippocampusMR_MR_0214.nii.gz",
-            "moving": "./MR/imagesTr/HippocampusMR_MR_0247.nii.gz"
+            "fixed": "./MR/imagesTr/HippocampusMR_MR_0214_0000.nii.gz",
+            "moving": "./MR/imagesTr/HippocampusMR_MR_0247_0000.nii.gz"
         },
         {
-            "fixed": "./MR/imagesTr/HippocampusMR_MR_0215.nii.gz",
-            "moving": "./MR/imagesTr/HippocampusMR_MR_0246.nii.gz"
+            "fixed": "./MR/imagesTr/HippocampusMR_MR_0215_0000.nii.gz",
+            "moving": "./MR/imagesTr/HippocampusMR_MR_0246_0000.nii.gz"
         },
         {
-            "fixed": "./MR/imagesTr/HippocampusMR_MR_0216.nii.gz",
-            "moving": "./MR/imagesTr/HippocampusMR_MR_0245.nii.gz"
+            "fixed": "./MR/imagesTr/HippocampusMR_MR_0216_0000.nii.gz",
+            "moving": "./MR/imagesTr/HippocampusMR_MR_0245_0000.nii.gz"
         },
         {
-            "fixed": "./MR/imagesTr/HippocampusMR_MR_0217.nii.gz",
-            "moving": "./MR/imagesTr/HippocampusMR_MR_0244.nii.gz"
+            "fixed": "./MR/imagesTr/HippocampusMR_MR_0217_0000.nii.gz",
+            "moving": "./MR/imagesTr/HippocampusMR_MR_0244_0000.nii.gz"
         },
         {
-            "fixed": "./MR/imagesTr/HippocampusMR_MR_0218.nii.gz",
-            "moving": "./MR/imagesTr/HippocampusMR_MR_0243.nii.gz"
+            "fixed": "./MR/imagesTr/HippocampusMR_MR_0218_0000.nii.gz",
+            "moving": "./MR/imagesTr/HippocampusMR_MR_0243_0000.nii.gz"
         },
         {
-            "fixed": "./MR/imagesTr/HippocampusMR_MR_0219.nii.gz",
-            "moving": "./MR/imagesTr/HippocampusMR_MR_0242.nii.gz"
+            "fixed": "./MR/imagesTr/HippocampusMR_MR_0219_0000.nii.gz",
+            "moving": "./MR/imagesTr/HippocampusMR_MR_0242_0000.nii.gz"
         },
         {
-            "fixed": "./MR/imagesTr/HippocampusMR_MR_0220.nii.gz",
-            "moving": "./MR/imagesTr/HippocampusMR_MR_0241.nii.gz"
+            "fixed": "./MR/imagesTr/HippocampusMR_MR_0220_0000.nii.gz",
+            "moving": "./MR/imagesTr/HippocampusMR_MR_0241_0000.nii.gz"
         },
         {
-            "fixed": "./MR/imagesTr/HippocampusMR_MR_0221.nii.gz",
-            "moving": "./MR/imagesTr/HippocampusMR_MR_0240.nii.gz"
+            "fixed": "./MR/imagesTr/HippocampusMR_MR_0221_0000.nii.gz",
+            "moving": "./MR/imagesTr/HippocampusMR_MR_0240_0000.nii.gz"
         },
         {
-            "fixed": "./MR/imagesTr/HippocampusMR_MR_0222.nii.gz",
-            "moving": "./MR/imagesTr/HippocampusMR_MR_0239.nii.gz"
+            "fixed": "./MR/imagesTr/HippocampusMR_MR_0222_0000.nii.gz",
+            "moving": "./MR/imagesTr/HippocampusMR_MR_0239_0000.nii.gz"
         },
         {
-            "fixed": "./MR/imagesTr/HippocampusMR_MR_0223.nii.gz",
-            "moving": "./MR/imagesTr/HippocampusMR_MR_0238.nii.gz"
+            "fixed": "./MR/imagesTr/HippocampusMR_MR_0223_0000.nii.gz",
+            "moving": "./MR/imagesTr/HippocampusMR_MR_0238_0000.nii.gz"
         },
         {
-            "fixed": "./MR/imagesTr/HippocampusMR_MR_0224.nii.gz",
-            "moving": "./MR/imagesTr/HippocampusMR_MR_0237.nii.gz"
+            "fixed": "./MR/imagesTr/HippocampusMR_MR_0224_0000.nii.gz",
+            "moving": "./MR/imagesTr/HippocampusMR_MR_0237_0000.nii.gz"
         },
         {
-            "fixed": "./MR/imagesTr/HippocampusMR_MR_0225.nii.gz",
-            "moving": "./MR/imagesTr/HippocampusMR_MR_0236.nii.gz"
+            "fixed": "./MR/imagesTr/HippocampusMR_MR_0225_0000.nii.gz",
+            "moving": "./MR/imagesTr/HippocampusMR_MR_0236_0000.nii.gz"
         },
         {
-            "fixed": "./MR/imagesTr/HippocampusMR_MR_0226.nii.gz",
-            "moving": "./MR/imagesTr/HippocampusMR_MR_0235.nii.gz"
+            "fixed": "./MR/imagesTr/HippocampusMR_MR_0226_0000.nii.gz",
+            "moving": "./MR/imagesTr/HippocampusMR_MR_0235_0000.nii.gz"
         },
         {
-            "fixed": "./MR/imagesTr/HippocampusMR_MR_0227.nii.gz",
-            "moving": "./MR/imagesTr/HippocampusMR_MR_0234.nii.gz"
+            "fixed": "./MR/imagesTr/HippocampusMR_MR_0227_0000.nii.gz",
+            "moving": "./MR/imagesTr/HippocampusMR_MR_0234_0000.nii.gz"
         },
         {
-            "fixed": "./MR/imagesTr/HippocampusMR_MR_0228.nii.gz",
-            "moving": "./MR/imagesTr/HippocampusMR_MR_0233.nii.gz"
+            "fixed": "./MR/imagesTr/HippocampusMR_MR_0228_0000.nii.gz",
+            "moving": "./MR/imagesTr/HippocampusMR_MR_0233_0000.nii.gz"
         },
         {
-            "fixed": "./MR/imagesTr/HippocampusMR_MR_0229.nii.gz",
-            "moving": "./MR/imagesTr/HippocampusMR_MR_0232.nii.gz"
+            "fixed": "./MR/imagesTr/HippocampusMR_MR_0229_0000.nii.gz",
+            "moving": "./MR/imagesTr/HippocampusMR_MR_0232_0000.nii.gz"
         },
         {
-            "fixed": "./MR/imagesTr/HippocampusMR_MR_0230.nii.gz",
-            "moving": "./MR/imagesTr/HippocampusMR_MR_0231.nii.gz"
+            "fixed": "./MR/imagesTr/HippocampusMR_MR_0230_0000.nii.gz",
+            "moving": "./MR/imagesTr/HippocampusMR_MR_0231_0000.nii.gz"
         },
         {
-            "fixed": "./MR/imagesTr/HippocampusMR_MR_0231.nii.gz",
-            "moving": "./MR/imagesTr/HippocampusMR_MR_0230.nii.gz"
+            "fixed": "./MR/imagesTr/HippocampusMR_MR_0231_0000.nii.gz",
+            "moving": "./MR/imagesTr/HippocampusMR_MR_0230_0000.nii.gz"
         },
         {
-            "fixed": "./MR/imagesTr/HippocampusMR_MR_0232.nii.gz",
-            "moving": "./MR/imagesTr/HippocampusMR_MR_0229.nii.gz"
+            "fixed": "./MR/imagesTr/HippocampusMR_MR_0232_0000.nii.gz",
+            "moving": "./MR/imagesTr/HippocampusMR_MR_0229_0000.nii.gz"
         },
         {
-            "fixed": "./MR/imagesTr/HippocampusMR_MR_0233.nii.gz",
-            "moving": "./MR/imagesTr/HippocampusMR_MR_0228.nii.gz"
+            "fixed": "./MR/imagesTr/HippocampusMR_MR_0233_0000.nii.gz",
+            "moving": "./MR/imagesTr/HippocampusMR_MR_0228_0000.nii.gz"
         },
         {
-            "fixed": "./MR/imagesTr/HippocampusMR_MR_0234.nii.gz",
-            "moving": "./MR/imagesTr/HippocampusMR_MR_0227.nii.gz"
+            "fixed": "./MR/imagesTr/HippocampusMR_MR_0234_0000.nii.gz",
+            "moving": "./MR/imagesTr/HippocampusMR_MR_0227_0000.nii.gz"
         },
         {
-            "fixed": "./MR/imagesTr/HippocampusMR_MR_0235.nii.gz",
-            "moving": "./MR/imagesTr/HippocampusMR_MR_0226.nii.gz"
+            "fixed": "./MR/imagesTr/HippocampusMR_MR_0235_0000.nii.gz",
+            "moving": "./MR/imagesTr/HippocampusMR_MR_0226_0000.nii.gz"
         },
         {
-            "fixed": "./MR/imagesTr/HippocampusMR_MR_0236.nii.gz",
-            "moving": "./MR/imagesTr/HippocampusMR_MR_0225.nii.gz"
+            "fixed": "./MR/imagesTr/HippocampusMR_MR_0236_0000.nii.gz",
+            "moving": "./MR/imagesTr/HippocampusMR_MR_0225_0000.nii.gz"
         },
         {
-            "fixed": "./MR/imagesTr/HippocampusMR_MR_0237.nii.gz",
-            "moving": "./MR/imagesTr/HippocampusMR_MR_0224.nii.gz"
+            "fixed": "./MR/imagesTr/HippocampusMR_MR_0237_0000.nii.gz",
+            "moving": "./MR/imagesTr/HippocampusMR_MR_0224_0000.nii.gz"
         },
         {
-            "fixed": "./MR/imagesTr/HippocampusMR_MR_0238.nii.gz",
-            "moving": "./MR/imagesTr/HippocampusMR_MR_0223.nii.gz"
+            "fixed": "./MR/imagesTr/HippocampusMR_MR_0238_0000.nii.gz",
+            "moving": "./MR/imagesTr/HippocampusMR_MR_0223_0000.nii.gz"
         },
         {
-            "fixed": "./MR/imagesTr/HippocampusMR_MR_0239.nii.gz",
-            "moving": "./MR/imagesTr/HippocampusMR_MR_0222.nii.gz"
+            "fixed": "./MR/imagesTr/HippocampusMR_MR_0239_0000.nii.gz",
+            "moving": "./MR/imagesTr/HippocampusMR_MR_0222_0000.nii.gz"
         },
         {
-            "fixed": "./MR/imagesTr/HippocampusMR_MR_0240.nii.gz",
-            "moving": "./MR/imagesTr/HippocampusMR_MR_0221.nii.gz"
+            "fixed": "./MR/imagesTr/HippocampusMR_MR_0240_0000.nii.gz",
+            "moving": "./MR/imagesTr/HippocampusMR_MR_0221_0000.nii.gz"
         },
         {
-            "fixed": "./MR/imagesTr/HippocampusMR_MR_0241.nii.gz",
-            "moving": "./MR/imagesTr/HippocampusMR_MR_0220.nii.gz"
+            "fixed": "./MR/imagesTr/HippocampusMR_MR_0241_0000.nii.gz",
+            "moving": "./MR/imagesTr/HippocampusMR_MR_0220_0000.nii.gz"
         },
         {
-            "fixed": "./MR/imagesTr/HippocampusMR_MR_0242.nii.gz",
-            "moving": "./MR/imagesTr/HippocampusMR_MR_0219.nii.gz"
+            "fixed": "./MR/imagesTr/HippocampusMR_MR_0242_0000.nii.gz",
+            "moving": "./MR/imagesTr/HippocampusMR_MR_0219_0000.nii.gz"
         },
         {
-            "fixed": "./MR/imagesTr/HippocampusMR_MR_0243.nii.gz",
-            "moving": "./MR/imagesTr/HippocampusMR_MR_0218.nii.gz"
+            "fixed": "./MR/imagesTr/HippocampusMR_MR_0243_0000.nii.gz",
+            "moving": "./MR/imagesTr/HippocampusMR_MR_0218_0000.nii.gz"
         },
         {
-            "fixed": "./MR/imagesTr/HippocampusMR_MR_0244.nii.gz",
-            "moving": "./MR/imagesTr/HippocampusMR_MR_0217.nii.gz"
+            "fixed": "./MR/imagesTr/HippocampusMR_MR_0244_0000.nii.gz",
+            "moving": "./MR/imagesTr/HippocampusMR_MR_0217_0000.nii.gz"
         },
         {
-            "fixed": "./MR/imagesTr/HippocampusMR_MR_0245.nii.gz",
-            "moving": "./MR/imagesTr/HippocampusMR_MR_0216.nii.gz"
+            "fixed": "./MR/imagesTr/HippocampusMR_MR_0245_0000.nii.gz",
+            "moving": "./MR/imagesTr/HippocampusMR_MR_0216_0000.nii.gz"
         },
         {
-            "fixed": "./MR/imagesTr/HippocampusMR_MR_0246.nii.gz",
-            "moving": "./MR/imagesTr/HippocampusMR_MR_0215.nii.gz"
+            "fixed": "./MR/imagesTr/HippocampusMR_MR_0246_0000.nii.gz",
+            "moving": "./MR/imagesTr/HippocampusMR_MR_0215_0000.nii.gz"
         },
         {
-            "fixed": "./MR/imagesTr/HippocampusMR_MR_0247.nii.gz",
-            "moving": "./MR/imagesTr/HippocampusMR_MR_0214.nii.gz"
+            "fixed": "./MR/imagesTr/HippocampusMR_MR_0247_0000.nii.gz",
+            "moving": "./MR/imagesTr/HippocampusMR_MR_0214_0000.nii.gz"
         },
         {
-            "fixed": "./MR/imagesTr/HippocampusMR_MR_0248.nii.gz",
-            "moving": "./MR/imagesTr/HippocampusMR_MR_0213.nii.gz"
+            "fixed": "./MR/imagesTr/HippocampusMR_MR_0248_0000.nii.gz",
+            "moving": "./MR/imagesTr/HippocampusMR_MR_0213_0000.nii.gz"
         },
         {
-            "fixed": "./MR/imagesTr/HippocampusMR_MR_0249.nii.gz",
-            "moving": "./MR/imagesTr/HippocampusMR_MR_0212.nii.gz"
+            "fixed": "./MR/imagesTr/HippocampusMR_MR_0249_0000.nii.gz",
+            "moving": "./MR/imagesTr/HippocampusMR_MR_0212_0000.nii.gz"
         },
         {
-            "fixed": "./MR/imagesTr/HippocampusMR_MR_0250.nii.gz",
-            "moving": "./MR/imagesTr/HippocampusMR_MR_0211.nii.gz"
+            "fixed": "./MR/imagesTr/HippocampusMR_MR_0250_0000.nii.gz",
+            "moving": "./MR/imagesTr/HippocampusMR_MR_0211_0000.nii.gz"
         },
         {
-            "fixed": "./MR/imagesTr/HippocampusMR_MR_0251.nii.gz",
-            "moving": "./MR/imagesTr/HippocampusMR_MR_0210.nii.gz"
+            "fixed": "./MR/imagesTr/HippocampusMR_MR_0251_0000.nii.gz",
+            "moving": "./MR/imagesTr/HippocampusMR_MR_0210_0000.nii.gz"
         },
         {
-            "fixed": "./MR/imagesTr/HippocampusMR_MR_0252.nii.gz",
-            "moving": "./MR/imagesTr/HippocampusMR_MR_0209.nii.gz"
+            "fixed": "./MR/imagesTr/HippocampusMR_MR_0252_0000.nii.gz",
+            "moving": "./MR/imagesTr/HippocampusMR_MR_0209_0000.nii.gz"
         },
         {
-            "fixed": "./MR/imagesTr/HippocampusMR_MR_0253.nii.gz",
-            "moving": "./MR/imagesTr/HippocampusMR_MR_0208.nii.gz"
+            "fixed": "./MR/imagesTr/HippocampusMR_MR_0253_0000.nii.gz",
+            "moving": "./MR/imagesTr/HippocampusMR_MR_0208_0000.nii.gz"
         },
         {
-            "fixed": "./MR/imagesTr/HippocampusMR_MR_0254.nii.gz",
-            "moving": "./MR/imagesTr/HippocampusMR_MR_0207.nii.gz"
+            "fixed": "./MR/imagesTr/HippocampusMR_MR_0254_0000.nii.gz",
+            "moving": "./MR/imagesTr/HippocampusMR_MR_0207_0000.nii.gz"
         },
         {
-            "fixed": "./MR/imagesTr/HippocampusMR_MR_0255.nii.gz",
-            "moving": "./MR/imagesTr/HippocampusMR_MR_0206.nii.gz"
+            "fixed": "./MR/imagesTr/HippocampusMR_MR_0255_0000.nii.gz",
+            "moving": "./MR/imagesTr/HippocampusMR_MR_0206_0000.nii.gz"
         },
         {
-            "fixed": "./MR/imagesTr/HippocampusMR_MR_0256.nii.gz",
-            "moving": "./MR/imagesTr/HippocampusMR_MR_0205.nii.gz"
+            "fixed": "./MR/imagesTr/HippocampusMR_MR_0256_0000.nii.gz",
+            "moving": "./MR/imagesTr/HippocampusMR_MR_0205_0000.nii.gz"
         },
         {
-            "fixed": "./MR/imagesTr/HippocampusMR_MR_0257.nii.gz",
-            "moving": "./MR/imagesTr/HippocampusMR_MR_0204.nii.gz"
+            "fixed": "./MR/imagesTr/HippocampusMR_MR_0257_0000.nii.gz",
+            "moving": "./MR/imagesTr/HippocampusMR_MR_0204_0000.nii.gz"
         },
         {
-            "fixed": "./MR/imagesTr/HippocampusMR_MR_0258.nii.gz",
-            "moving": "./MR/imagesTr/HippocampusMR_MR_0203.nii.gz"
+            "fixed": "./MR/imagesTr/HippocampusMR_MR_0258_0000.nii.gz",
+            "moving": "./MR/imagesTr/HippocampusMR_MR_0203_0000.nii.gz"
         },
         {
-            "fixed": "./MR/imagesTr/HippocampusMR_MR_0259.nii.gz",
-            "moving": "./MR/imagesTr/HippocampusMR_MR_0202.nii.gz"
+            "fixed": "./MR/imagesTr/HippocampusMR_MR_0259_0000.nii.gz",
+            "moving": "./MR/imagesTr/HippocampusMR_MR_0202_0000.nii.gz"
         },
         {
-            "fixed": "./MR/imagesTr/HippocampusMR_MR_0260.nii.gz",
-            "moving": "./MR/imagesTr/HippocampusMR_MR_0201.nii.gz"
+            "fixed": "./MR/imagesTr/HippocampusMR_MR_0260_0000.nii.gz",
+            "moving": "./MR/imagesTr/HippocampusMR_MR_0201_0000.nii.gz"
         }
     ],
     "eval_config_version": 0.1
