@@ -12,16 +12,16 @@
     ],
     "eval_pairs": [
         {
-            "fixed": "./CT/imagesTr/LungCT_CT_Exh0001.nii.gz",
-            "moving": "./CT/imagesTr/LungCT_CT_Inh0001.nii.gz"
+            "fixed": "./CT/imagesTr/LungCT_CT_0001_0000.nii.gz",
+            "moving": "./CT/imagesTr/LungCT_CT_0001_0001.nii.gz"
         },
         {
-            "fixed": "./CT/imagesTr/LungCT_CT_Exh0002.nii.gz",
-            "moving": "./CT/imagesTr/LungCT_CT_Inh0002.nii.gz"
+            "fixed": "./CT/imagesTr/LungCT_CT_0002_0000.nii.gz",
+            "moving": "./CT/imagesTr/LungCT_CT_0002_0001.nii.gz"
         },
         {
-            "fixed": "./CT/imagesTr/LungCT_CT_Exh0003.nii.gz",
-            "moving": "./CT/imagesTr/LungCT_CT_Inh0003.nii.gz"
+            "fixed": "./CT/imagesTr/LungCT_CT_0003_0000.nii.gz",
+            "moving": "./CT/imagesTr/LungCT_CT_0003_0001.nii.gz"
         }
     ],
     "eval_config_version": 0.1
