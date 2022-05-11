@@ -2,7 +2,7 @@
 **/output_test/
 pairs_test.csv
 testing_debug
-
+**/L2RTest/metrics.json
 
 # Byte-compiled / optimized / DLL files
 **/__pycache__/
