@@ -10,7 +10,8 @@ Including:
 
 ## What is Learn2Reg?
 Learn2Reg is a comprehensive multi-task medical image registration challenge, hosted on https://learn2reg.grand-challenge.org/. Have a look!
-Are you looking to benchmark your registration algorithm? Please visit https://learn2reg-test.grand-challenge.org/, where you can evaluate your alorithm on our former challenges.
+
+Are you looking to benchmark your registration algorithm? Please visit https://learn2reg-test.grand-challenge.org/, where you can evaluate your alorithm on data from former Learn2Reg-challenges.
 
 ######  Motivation: Standardised benchmark for the best conventional and learning based medical registration methods:
 
