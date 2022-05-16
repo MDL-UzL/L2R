@@ -1,0 +1,28 @@
+{
+    "task_name": "LungCT",
+    "evaluation_methods": {
+        "sdlogj": true,
+        "tre": true
+    },
+    "expected_shape": [
+        192,
+        192,
+        208,
+        3
+    ],
+    "eval_pairs": [
+        {
+            "fixed": "./imagesTr/LungCT_0001_0000.nii.gz",
+            "moving": "./imagesTr/LungCT_0001_0001.nii.gz"
+        },
+        {
+            "fixed": "./imagesTr/LungCT_0002_0000.nii.gz",
+            "moving": "./imagesTr/LungCT_0002_0001.nii.gz"
+        },
+        {
+            "fixed": "./imagesTr/LungCT_0003_0000.nii.gz",
+            "moving": "./imagesTr/LungCT_0003_0001.nii.gz"
+        }
+    ],
+    "eval_config_version": 0.1
+}
