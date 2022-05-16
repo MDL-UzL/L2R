@@ -142,7 +142,7 @@ if __name__=="__main__":
     parser.add_argument("-d","--data", dest="gt_path", help="path to data", default="ground-truth")
     parser.add_argument("-o","--output", dest="output_path", help="path to write results(e.g. 'results/metrics.json')", default="metrics.json")
     parser.add_argument("-c","--config", dest="config_path", help="path to config json-File (e.g. 'evaluation_config.json')", default='ground-truth/evaluation_config.json') 
-    parser.add_argument("-v","--verbose", dest="verbose", action=argparse.BooleanOptionalAction, default=False)
+    parser.add_argument("-v","--verbose", dest="verbose", action='store_true', default=False)
     args= parser.parse_args()
     main(args)
     
