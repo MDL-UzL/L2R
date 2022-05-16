@@ -11,7 +11,6 @@ HowTo:
 1) Create evaluation_config.json with create_evaluation_config.py (or use from evaluation_configs)
 ```
 python create_evaluation_config.py -c AbdomenCTCT_dataset.json 
-  -s 192 160 256 3 
   -o evaluation_configs/ 
   --SDlogJ 
   --DSC 13 
