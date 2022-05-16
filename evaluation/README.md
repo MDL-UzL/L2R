@@ -4,7 +4,7 @@ Repository for L2R evaluation files
 Structure:
 * L2RTest: docker image for grand-challenge.org
 * evaluation_configs: config files for evaluations
-* zero_def_fields: zero_def_fields for all current datasets
+* zero_def_fields: zero deformation fields for all current datasets
 
 
 HowTo:
