@@ -173,3 +173,4 @@ tmp/LungCT_dataset.json
 tmp/OASIS_dataset.json
 metrics.json
 .vscode/launch.json
+tmp/NLST_dataset.json
