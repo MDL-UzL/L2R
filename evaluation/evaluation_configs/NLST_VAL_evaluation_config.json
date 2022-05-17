@@ -1,0 +1,63 @@
+{
+    "task_name": "NLST",
+    "evaluation_methods": [
+        {
+            "name": "LogJacDetStd",
+            "metric": "sdlogj"
+        },
+        {
+            "name": "tre_kp",
+            "metric": "tre",
+            "dest": "keypoints"
+        }
+    ],
+    "expected_shape": [
+        192,
+        192,
+        208,
+        3
+    ],
+    "eval_pairs": [
+        {
+            "fixed": "./imagesTr/NLST_0041_0000.nii.gz",
+            "moving": "./imagesTr/NLST_0041_0001.nii.gz"
+        },
+        {
+            "fixed": "./imagesTr/NLST_0042_0000.nii.gz",
+            "moving": "./imagesTr/NLST_0042_0001.nii.gz"
+        },
+        {
+            "fixed": "./imagesTr/NLST_0043_0000.nii.gz",
+            "moving": "./imagesTr/NLST_0043_0001.nii.gz"
+        },
+        {
+            "fixed": "./imagesTr/NLST_0044_0000.nii.gz",
+            "moving": "./imagesTr/NLST_0044_0001.nii.gz"
+        },
+        {
+            "fixed": "./imagesTr/NLST_0045_0000.nii.gz",
+            "moving": "./imagesTr/NLST_0045_0001.nii.gz"
+        },
+        {
+            "fixed": "./imagesTr/NLST_0046_0000.nii.gz",
+            "moving": "./imagesTr/NLST_0046_0001.nii.gz"
+        },
+        {
+            "fixed": "./imagesTr/NLST_0047_0000.nii.gz",
+            "moving": "./imagesTr/NLST_0047_0001.nii.gz"
+        },
+        {
+            "fixed": "./imagesTr/NLST_0048_0000.nii.gz",
+            "moving": "./imagesTr/NLST_0048_0001.nii.gz"
+        },
+        {
+            "fixed": "./imagesTr/NLST_0049_0000.nii.gz",
+            "moving": "./imagesTr/NLST_0049_0001.nii.gz"
+        },
+        {
+            "fixed": "./imagesTr/NLST_0050_0000.nii.gz",
+            "moving": "./imagesTr/NLST_0050_0001.nii.gz"
+        }
+    ],
+    "eval_config_version": 0.1
+}
