@@ -1,38 +1,49 @@
 {
     "task_name": "AbdomenCTCT",
-    "evaluation_methods": {
-        "sdlogj": true,
-        "dice": [
-            1,
-            2,
-            3,
-            4,
-            5,
-            6,
-            7,
-            8,
-            9,
-            10,
-            11,
-            12,
-            13
-        ],
-        "hd95": [
-            1,
-            2,
-            3,
-            4,
-            5,
-            6,
-            7,
-            8,
-            9,
-            10,
-            11,
-            12,
-            13
-        ]
-    },
+    "evaluation_methods": [
+        {
+            "name": "LogJacDetStd",
+            "metric": "sdlogj"
+        },
+        {
+            "name": "DSC",
+            "metric": "dice",
+            "labels": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13
+            ]
+        },
+        {
+            "name": "HD95",
+            "metric": "hd95",
+            "labels": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13
+            ]
+        }
+    ],
     "expected_shape": [
         192,
         160,

@@ -1,9 +1,21 @@
 {
-    "task_name": "LungCT_Val",
-    "evaluation_methods": {
-        "sdlogj": true,
-        "tre": true
-    },
+    "task_name": "LungCT",
+    "evaluation_methods": [
+        {
+            "name": "LogJacDetStd",
+            "metric": "sdlogj"
+        },
+        {
+            "name": "TRE_lm",
+            "metric": "tre",
+            "dest": "landmarks"
+        },
+        {
+            "name": "TRE_kp",
+            "metric": "tre",
+            "dest": "keypoints"
+        }
+    ],
     "expected_shape": [
         192,
         192,
@@ -12,16 +24,16 @@
     ],
     "eval_pairs": [
         {
-            "fixed": "./CT/imagesTr/LungCT_CT_0001_0000.nii.gz",
-            "moving": "./CT/imagesTr/LungCT_CT_0001_0001.nii.gz"
+            "fixed": "./imagesTr/LungCT_0001_0000.nii.gz",
+            "moving": "./imagesTr/LungCT_0001_0001.nii.gz"
         },
         {
-            "fixed": "./CT/imagesTr/LungCT_CT_0002_0000.nii.gz",
-            "moving": "./CT/imagesTr/LungCT_CT_0002_0001.nii.gz"
+            "fixed": "./imagesTr/LungCT_0002_0000.nii.gz",
+            "moving": "./imagesTr/LungCT_0002_0001.nii.gz"
         },
         {
-            "fixed": "./CT/imagesTr/LungCT_CT_0003_0000.nii.gz",
-            "moving": "./CT/imagesTr/LungCT_CT_0003_0001.nii.gz"
+            "fixed": "./imagesTr/LungCT_0003_0000.nii.gz",
+            "moving": "./imagesTr/LungCT_0003_0001.nii.gz"
         }
     ],
     "eval_config_version": 0.1

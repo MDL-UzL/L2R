@@ -1,9 +1,21 @@
 {
     "task_name": "LungCT",
-    "evaluation_methods": {
-        "sdlogj": true,
-        "tre": true
-    },
+    "evaluation_methods": [
+        {
+            "name": "LogJacDetStd", 
+            "metric": "sdlogj"
+        },
+        {
+            "name": "TRE_lm",
+            "metric": "tre",
+            "dest": "landmarks"
+        },
+        {
+            "name": "TRE_kp",
+            "metric": "tre",
+            "dest": "keypoints"
+        }
+    ],
     "expected_shape": [
         192,
         192,

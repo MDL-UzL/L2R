@@ -1,16 +1,27 @@
 {
     "task_name": "HippocampusMR",
-    "evaluation_methods": {
-        "sdlogj": true,
-        "dice": [
-            1,
-            2
-        ],
-        "hd95": [
-            1,
-            2
-        ]
-    },
+    "evaluation_methods": [
+        {
+            "name": "LogJacDetStd",
+            "metric": "sdlogj"
+        },
+        {
+            "name": "DSC",
+            "metric": "dice",
+            "labels": [
+                1,
+                2
+            ]
+        },
+        {
+            "name": "HD95",
+            "metric": "hd95",
+            "labels": [
+                1,
+                2
+            ]
+        }
+    ],
     "expected_shape": [
         64,
         64,

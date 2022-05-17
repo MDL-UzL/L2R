@@ -1,9 +1,16 @@
 {
     "task_name": "CuRIOUS",
-    "evaluation_methods": {
-        "sdlogj": true,
-        "tre": true
-    },
+    "evaluation_methods": [
+        {
+            "name": "LogJacDetStd",
+            "metric": "sdlogj"
+        },
+        {
+            "name": "TRE_lm",
+            "metric": "tre",
+            "dest": "landmarks"
+        }
+    ],
     "expected_shape": [
         256,
         256,

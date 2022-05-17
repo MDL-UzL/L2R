@@ -24,4 +24,4 @@ RUN python -m pip install --user -rrequirements.txt
 COPY --chown=evaluator:evaluator evaluation.py /opt/evaluation/
 COPY --chown=evaluator:evaluator utils.py /opt/evaluation/
 
-ENTRYPOINT "python" "-m" "evaluation" "-c" "ground-truth/LungCT_Val_evaluation_config.json" "-i" "/input/" "-d" "/opt/evaluation/ground-truth/" "-o" "/output/metrics.json"
+ENTRYPOINT "python" "-m" "evaluation" "-c" "ground-truth/LungCT_VAL_evaluation_config.json" "-i" "/input/" "-d" "/opt/evaluation/ground-truth/" "-o" "/output/metrics.json"

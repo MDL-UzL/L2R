@@ -1,20 +1,31 @@
 {
     "task_name": "AbdomenMRCT",
-    "evaluation_methods": {
-        "sdlogj": true,
-        "dice": [
-            1,
-            2,
-            3,
-            4
-        ],
-        "hd95": [
-            1,
-            2,
-            3,
-            4
-        ]
-    },
+    "evaluation_methods": [
+        {
+            "name": "LogJacDetStd",
+            "metric": "sdlogj"
+        },
+        {
+            "name": "DSC",
+            "metric": "dice",
+            "labels": [
+                1,
+                2,
+                3,
+                4
+            ]
+        },
+        {
+            "name": "HD95",
+            "metric": "hd95",
+            "labels": [
+                1,
+                2,
+                3,
+                4
+            ]
+        }
+    ],
     "expected_shape": [
         192,
         160,
