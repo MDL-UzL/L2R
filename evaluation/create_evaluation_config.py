@@ -10,16 +10,46 @@ def main(args):
     pairs_config=args.pairs_config
     output_dir=args.output_dir
     #evaluation_methods
-    evals={}
-    for eval in ['sdlogj','tre']:
-        if d_opt[eval] == True:
-            evals[eval]=True
-    for eval in ['dice', 'dice_secret', 'hd95', 'hd95_secret']:
-        if d_opt[eval] != None:
-            if len(d_opt[eval])==1:
-                evals[eval]=list(range(1,d_opt[eval][0]+1))
+    evals=[]
+
+    if args.sdlogj:
+        evals.append({"name": "LogJacDetStd",
+                     "metric": "sdlogj"})
+    if args.dice is not None:
+        for _instance in args.dice:
+            if len(_instance) >2:
+                evals.append({"name": _instance[0],
+                     "metric": "dice",
+                     "labels": _instance[1:]})
             else:
-                evals[eval]=d_opt[eval]
+                evals.append({"name": _instance[0],
+                     "metric": "dice",
+                     "labels": list(range(1,int(_instance[1])+1))})
+    if args.hd95 is not None:
+        for _instance in args.hd95:
+            if len(_instance) >2:
+                evals.append({"name": _instance[0],
+                     "metric": "hd95",
+                     "labels": _instance[1:]})
+            else:
+                evals.append({"name": _instance[0],
+                     "metric": "hd95",
+                     "labels": list(range(1,int(_instance[1]+1)))})
+    if args.tre is not None:
+        for _instance in args.tre:
+            evals.append({"name": _instance[0],
+                       "metric": "tre",
+                       "dest": _instance[1]})
+            
+    # for eval in ['sdlogj','tre']:
+    #     if d_opt[eval] == True:
+    #         evals[eval]=True
+    # for eval in ['dice', 'dice_secret', 'hd95', 'hd95_secret']:
+    #     if d_opt[eval] != None:
+    #         if len(d_opt[eval])==1:
+    #             evals[eval]=list(range(1,d_opt[eval][0]+1))
+    #         else:
+    #             evals[eval]=d_opt[eval]
 
     ##eval pairs
     with open(pairs_config, 'r') as f:
@@ -33,8 +63,7 @@ def main(args):
 
     task_name=json_data['name']
     if args.expected_shape is not None:
-        print('ff')
-        expected_shape = d_opt['expected_shape']
+        expected_shape = args.expected_shape
     else:
         expected_shape=json_data['tensorImageShape']["0"]
         expected_shape.append(3)
@@ -58,11 +87,9 @@ if __name__ == "__main__":
     parser.add_argument("--test", dest="test", action=argparse.BooleanOptionalAction, default=False) #Otherwise Validation
 
     parser.add_argument("--SDlogJ", dest="sdlogj", help="Evaluate SDlogJ", action=argparse.BooleanOptionalAction, default=False)
-    parser.add_argument("--DSC", dest="dice", help="Specify the labels. If input is single int, is is assumed to be max label", nargs='+', type=int)
-    parser.add_argument("--DSC_secret", dest="dice_secret", help="Specify the labels. If input is int, is is assumed to be max label", nargs='+', type=int)
-    parser.add_argument("--HD95", dest="hd95", help="Specify the labels. If input is int, is is assumed to be max label", nargs='+', type=int)
-    parser.add_argument("--HD95_secret", dest="hd95_secret", help="Specify the labels. If input is int, is is assumed to be max label", nargs='+', type=int)
-    parser.add_argument("--TRE", dest="tre", action=argparse.BooleanOptionalAction, default=False)
+    parser.add_argument("--DSC", dest="dice", help="--DSC [name] [labels] /If input is single int, is is assumed to be max label",action='append',  nargs='+')
+    parser.add_argument("--HD95", dest="hd95", help="--HD95 [name] [labels] /If input is int, is is assumed to be max label",action='append', nargs='+')
+    parser.add_argument("--TRE", dest="tre", help="--TRE [name] [directory] ", action='append',  nargs='+',)
 
     args= parser.parse_args()
     main(args)
