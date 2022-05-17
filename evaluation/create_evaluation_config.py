@@ -40,17 +40,7 @@ def main(args):
             evals.append({"name": _instance[0],
                        "metric": "tre",
                        "dest": _instance[1]})
-            
-    # for eval in ['sdlogj','tre']:
-    #     if d_opt[eval] == True:
-    #         evals[eval]=True
-    # for eval in ['dice', 'dice_secret', 'hd95', 'hd95_secret']:
-    #     if d_opt[eval] != None:
-    #         if len(d_opt[eval])==1:
-    #             evals[eval]=list(range(1,d_opt[eval][0]+1))
-    #         else:
-    #             evals[eval]=d_opt[eval]
-
+        
     ##eval pairs
     with open(pairs_config, 'r') as f:
         json_data=json.load(f)
