@@ -34,16 +34,16 @@
     ],
     "eval_pairs": [
         {
-            "fixed": "./imagesTr/AbdomenMRCT_TCIA0006_0000.nii.gz",
-            "moving": "./imagesTr/AbdomenMRCT_TCIA0006_0001.nii.gz"
+            "fixed": "./imagesTr/AbdomenMRCT_0006_0000.nii.gz",
+            "moving": "./imagesTr/AbdomenMRCT_0006_0001.nii.gz"
         },
         {
-            "fixed": "./imagesTr/AbdomenMRCT_TCIA0007_0000.nii.gz",
-            "moving": "./imagesTr/AbdomenMRCT_TCIA0007_0001.nii.gz"
+            "fixed": "./imagesTr/AbdomenMRCT_0007_0000.nii.gz",
+            "moving": "./imagesTr/AbdomenMRCT_0007_0001.nii.gz"
         },
         {
-            "fixed": "./imagesTr/AbdomenMRCT_TCIA0008_0000.nii.gz",
-            "moving": "./imagesTr/AbdomenMRCT_TCIA0008_0001.nii.gz"
+            "fixed": "./imagesTr/AbdomenMRCT_0008_0000.nii.gz",
+            "moving": "./imagesTr/AbdomenMRCT_0008_0001.nii.gz"
         }
     ],
     "eval_config_version": 0.1
