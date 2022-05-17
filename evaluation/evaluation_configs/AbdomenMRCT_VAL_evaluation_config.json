@@ -1,0 +1,39 @@
+{
+    "task_name": "AbdomenMRCT",
+    "evaluation_methods": {
+        "sdlogj": true,
+        "dice": [
+            1,
+            2,
+            3,
+            4
+        ],
+        "hd95": [
+            1,
+            2,
+            3,
+            4
+        ]
+    },
+    "expected_shape": [
+        192,
+        160,
+        192,
+        3
+    ],
+    "eval_pairs": [
+        {
+            "fixed": "./imagesTr/AbdomenMRCT_TCIA0006_0000.nii.gz",
+            "moving": "./imagesTr/AbdomenMRCT_TCIA0006_0001.nii.gz"
+        },
+        {
+            "fixed": "./imagesTr/AbdomenMRCT_TCIA0007_0000.nii.gz",
+            "moving": "./imagesTr/AbdomenMRCT_TCIA0007_0001.nii.gz"
+        },
+        {
+            "fixed": "./imagesTr/AbdomenMRCT_TCIA0008_0000.nii.gz",
+            "moving": "./imagesTr/AbdomenMRCT_TCIA0008_0001.nii.gz"
+        }
+    ],
+    "eval_config_version": 0.1
+}

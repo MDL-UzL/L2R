@@ -4,15 +4,13 @@ Repository for L2R evaluation files
 Structure:
 * L2RTest: docker image for grand-challenge.org
 * evaluation_configs: config files for evaluations
-* zero_def_fields: zero_def_fields for all current datasets
+* zero_def_fields: zero deformation fields for all current datasets
 
 
 HowTo:
 1) Create evaluation_config.json with create_evaluation_config.py (or use from evaluation_configs)
 ```
-python create_evaluation_config.py -c pairs_val.csv 
-  -s 192 160 256 3 
-  -n AbdomenCTCT_Val
+python create_evaluation_config.py -c AbdomenCTCT_dataset.json 
   -o evaluation_configs/ 
   --SDlogJ 
   --DSC 13 
