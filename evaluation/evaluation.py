@@ -58,7 +58,7 @@ def main(args):
         disp_field=nib.load(disp_path).get_fdata()
 
         shape = np.array(disp_field.shape)
-        if not (shape==expected_shape).all():
+        if not np.all(shape==expected_shape):
             raise_shape_error(disp_name, shape, expected_shape)
 
         ## load neccessary files 
