@@ -2,24 +2,11 @@ import numpy as np
 import scipy.ndimage
 import nibabel as nib
 from evalutils.exceptions import ValidationError
-from evalutils.io import CSVLoader, FileLoader, ImageLoader
-from scipy.ndimage import map_coordinates, zoom
+from scipy.ndimage import map_coordinates
 from surface_distance import *
-import os
 
-### warping
-def warp(fix_seg,mov_seg,disp_p,spacing_fix,spacing_mov):
+def warp(fix_seg,mov_seg,disp):
     D,H,W = fix_seg.shape
-    
-    fix_grid = np.stack(np.meshgrid(np.arange(D),
-                                    np.arange(H),
-                                    np.arange(W), indexing='ij'), axis=3)
-
-    fix_grid_p = fix_grid * spacing_fix
-    mov_grid_est_p = fix_grid_p + disp_p
-    mov_grid_est = mov_grid_est_p / spacing_mov
-    disp = mov_grid_est - fix_grid
-    
     identity = np.meshgrid(np.arange(D),
                            np.arange(H),
                            np.arange(W), indexing='ij')
@@ -112,35 +99,3 @@ def raise_shape_error(fname, shape, expected_shape):
         f"The expected shape of displacement fields for this task is {expected_shape[0]}x{expected_shape[1]}x{expected_shape[2]}x{expected_shape[3]}."
     )
     raise ValidationError(message)
-
-# def load_disp_field(fname,expected_shape, expected_dtype='float16'):
-#     if os.path.isfile(fname):
-#         disp_field=np.load(fname)['arr_0']
-#         dtype = disp_field.dtype
-#         if not dtype == expected_dtype:
-#             raise_dtype_error(fname, dtype)
-#         shape = np.array(disp_field.shape)
-#         if not (shape==expected_shape).all():
-#             raise_shape_error(fname, shape, expected_shape)
-#         return disp_field
-#     else: 
-#         raise_missing_file_error(fname)
-    
-# ##### file loader #####
-# class NiftiLoader(ImageLoader):
-#     @staticmethod
-#     def load_image(fname):
-#         return nib.load(str(fname))
-
-#     @staticmethod
-#     def hash_image(image):
-#         return hash(image.get_fdata().tostring())
-    
-# class NumpyLoader(ImageLoader):
-#     @staticmethod
-#     def load_image(fname):
-#         return np.load(str(fname))['arr_0']
-
-#     @staticmethod
-#     def hash_image(image):
-#         return hash(image.tostring())

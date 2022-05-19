@@ -62,14 +62,14 @@ def main(args):
             raise_shape_error(disp_name, shape, expected_shape)
 
         ## load neccessary files 
-        if any([True for eval_ in ['dice','hd95', 'tre'] if eval_ in evaluation_methods_metrics]):
+        if any([True for eval_ in ['tre'] if eval_ in evaluation_methods_metrics]):
             spacing_fix=nib.load(os.path.join(DEFAULT_GROUND_TRUTH_PATH, pair['fixed'])).header.get_zooms()[:3]
             spacing_mov=nib.load(os.path.join(DEFAULT_GROUND_TRUTH_PATH, pair['moving'])).header.get_zooms()[:3]
 
         if any([True for eval_ in ['dice','hd95'] if eval_ in evaluation_methods_metrics]):
             fixed_seg=nib.load(fix_label_path).get_fdata()
             moving_seg=nib.load(mov_label_path).get_fdata()
-            warped_seg=warp(fixed_seg,moving_seg,disp_field,spacing_fix,spacing_mov)
+            warped_seg=warp(fixed_seg,moving_seg,disp_field)
                 
         ## iterate over designated evaluation metrics
         for _eval in data['evaluation_methods']:
