@@ -109,10 +109,13 @@ def main(args):
             print(f'case_results [{idx}]: {case_results}')
         cases_results=pandas.concat([cases_results, pandas.DataFrame(case_results, index=[0])], ignore_index=True)
 
-    aggregated_results={}
-    aggregated_results['mean'] = cases_results.mean().to_dict()
-    aggregated_results['std'] = cases_results.std().to_dict()
-    aggregated_results['30'] = cases_results.quantile(.3).to_dict()
+        
+        
+    aggregated_results = {}   
+    for col in cases_results.columns:
+        aggregated_results[col] = {'30': cases_results[col].quantile(.3),
+                                  'std': cases_results[col].std(),
+                                  'mean': cases_results[col].mean()}
     final_results={
         name: {
             "case": cases_results.to_dict(),
