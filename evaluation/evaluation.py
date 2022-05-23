@@ -69,8 +69,9 @@ def main(args):
         if any([True for eval_ in ['dice','hd95'] if eval_ in evaluation_methods_metrics]):
             fixed_seg=nib.load(fix_label_path).get_fdata()
             moving_seg=nib.load(mov_label_path).get_fdata()
+            D,H,W = fixed_seg.shape
             identity = np.meshgrid(np.arange(D), np.arange(H), np.arange(W), indexing='ij')
-            warped_seg = map_coordinates(moving_seg, identity + disp_field, order=0)
+            warped_seg = map_coordinates(moving_seg, identity + disp_field.transpose(3,0,1,2), order=0)
                            
         ## iterate over designated evaluation metrics
         for _eval in data['evaluation_methods']:
