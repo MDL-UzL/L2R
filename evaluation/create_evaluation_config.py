@@ -34,7 +34,7 @@ def main(args):
             else:
                 evals.append({"name": _instance[0],
                      "metric": "hd95",
-                     "labels": list(range(1,int(_instance[1]+1)))})
+                     "labels": list(range(1,int(_instance[1])+1))})
     if args.tre is not None:
         for _instance in args.tre:
             evals.append({"name": _instance[0],
