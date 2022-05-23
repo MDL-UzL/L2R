@@ -43,9 +43,9 @@ def compute_tre(fix_lms, mov_lms, disp, spacing_fix, spacing_mov):
     fix_lms_disp_z = map_coordinates(disp[:, :, :, 2], fix_lms.transpose())
     fix_lms_disp = np.array((fix_lms_disp_x, fix_lms_disp_y, fix_lms_disp_z)).transpose()
 
-    fix_lms_warped = fix_lms * spacing_fix + fix_lms_disp
+    fix_lms_warped = fix_lms + fix_lms_disp
     
-    return np.linalg.norm(fix_lms_warped - mov_lms * spacing_mov, axis=1)
+    return np.linalg.norm((fix_lms_warped - mov_lms) * spacing_mov, axis=1)
 
 
 def compute_dice(fixed,moving,moving_warped,labels):
