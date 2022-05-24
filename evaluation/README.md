@@ -11,8 +11,8 @@ HowTo:
 1) Create evaluation_config.json with create_evaluation_config.py (or use from evaluation_configs)
 ```
 python create_evaluation_config.py -o evaluation_configs/ -c ../tmp/AbdomenCTCT_dataset.json --SDlogJ  --DSC DSC 13 --HD95 HD95 13  
-python create_evaluation_config.py -o evaluation_configs/ -c ../tmp/AbdomenMRCT_dataset.json --SDlogJ --DSC DSC 4 --HD95 HD95 4
-python create_evaluation_config.py -o evaluation_configs/ -c ../tmp/LungCT_dataset.json --SDlogJ --TRE TRE_lm landmarks --TRE TRE_kp keypoints
+python create_evaluation_config.py -o evaluation_configs/ -c ../tmp/AbdomenMRCT_dataset.json --SDlogJ --DSC DSC 4 --HD95 HD95 4 --masks
+python create_evaluation_config.py -o evaluation_configs/ -c ../tmp/LungCT_dataset.json --SDlogJ --TRE TRE_lm landmarks --TRE TRE_kp keypoints --masks
 python create_evaluation_config.py -o evaluation_configs/ -c ../tmp/CuRIOUS_dataset.json --SDlogJ --TRE TRE_lm landmarks
 python create_evaluation_config.py -o evaluation_configs/ -c ../tmp/HippocampusMR_dataset.json --SDlogJ --DSC DSC 2 --HD95 HD95 2
 python create_evaluation_config.py -o evaluation_configs/ -c ../tmp/OASIS_dataset.json --SDlogJ --DSC DSC 35 --HD95 HD95 35
