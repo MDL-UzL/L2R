@@ -29,7 +29,10 @@ def main(args):
     name=data['task_name']
     expected_shape=np.array(data['expected_shape'])
     evaluation_methods_metrics=[tmp['metric'] for tmp in data['evaluation_methods']]
-
+    if 'masked_evaluation' in data:
+        use_mask = data['masked_evaluation']
+    else:
+        use_mask = False
     eval_pairs=data['eval_pairs']
     len_eval_pairs=len(eval_pairs)
 
@@ -72,16 +75,33 @@ def main(args):
             D,H,W = fixed_seg.shape
             identity = np.meshgrid(np.arange(D), np.arange(H), np.arange(W), indexing='ij')
             warped_seg = map_coordinates(moving_seg, identity + disp_field.transpose(3,0,1,2), order=0)
-                           
+        
+        
+        if use_mask:
+            mask_path= os.path.join(DEFAULT_GROUND_TRUTH_PATH, pair['fixed'].replace('images','masks'))
+            if os.path.exists(mask_path):
+                mask=nib.load(mask_path).get_fdata()
+                mask_ready=True
+            else:
+                print(f'Tried to use mask but did not find {mask_path}. Will evaluate without mask.')
+                mask_ready=False
+
+                
         ## iterate over designated evaluation metrics
         for _eval in data['evaluation_methods']:
             _name=_eval['name']
 
             ### SDlogJ
+            
             if 'sdlogj' == _eval['metric']:
                 jac_det = (jacobian_determinant(disp_field[np.newaxis, :, :, :, :].transpose((0,4,1,2,3))) + 3).clip(0.000000001, 1000000000)
                 log_jac_det = np.log(jac_det)
-                case_results[_name]=log_jac_det.std()
+                if use_mask and mask_ready:
+                    case_results[_name]=np.ma.MaskedArray(log_jac_det, 1-mask[2:-2, 2:-2, 2:-2]).std()
+                else:
+                    case_results[_name]=log_jac_det.std()
+
+
 
             ### DSC
             if 'dice' == _eval['metric']:

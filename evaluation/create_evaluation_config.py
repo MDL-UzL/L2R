@@ -5,7 +5,7 @@ import argparse
 
 
 def main(args):
-    _version=0.1
+    _version=0.2
     d_opt=vars(args)
     pairs_config=args.pairs_config
     output_dir=args.output_dir
@@ -63,7 +63,8 @@ def main(args):
                         'evaluation_methods':evals,
                         'expected_shape':expected_shape,
                         'eval_pairs':eval_pairs,
-                        'eval_config_version':_version
+                        'eval_config_version':_version,
+                        'masked_evaluation': args.masks
                         }
 
     with open(os.path.join(output_dir,task_name+teststring+'evaluation_config.json'), 'w') as f:
@@ -75,11 +76,14 @@ if __name__ == "__main__":
     parser.add_argument("-o","--output", dest="output_dir", help="path to write evaluation.json", required=False, default='.')
     parser.add_argument("-s","--shape", dest='expected_shape', help="expected shape of deformation field", required=False, nargs='+', type=int)
     parser.add_argument("--test", dest="test", action=argparse.BooleanOptionalAction, default=False) #Otherwise Validation
+    #You can turn off using masks for evalauation, even if they are specified in the evaluation.json
+    parser.add_argument("--masks", dest="masks", action=argparse.BooleanOptionalAction, default=False) 
 
     parser.add_argument("--SDlogJ", dest="sdlogj", help="Evaluate SDlogJ", action=argparse.BooleanOptionalAction, default=False)
     parser.add_argument("--DSC", dest="dice", help="--DSC [name] [labels] /If input is single int, is is assumed to be max label",action='append',  nargs='+')
     parser.add_argument("--HD95", dest="hd95", help="--HD95 [name] [labels] /If input is int, is is assumed to be max label",action='append', nargs='+')
     parser.add_argument("--TRE", dest="tre", help="--TRE [name] [directory] ", action='append',  nargs='+',)
+    
 
     args= parser.parse_args()
     main(args)
