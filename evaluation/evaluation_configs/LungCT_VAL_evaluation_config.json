@@ -2,7 +2,7 @@
     "task_name": "LungCT",
     "evaluation_methods": [
         {
-            "name": "LogJacDetStd", 
+            "name": "LogJacDetStd",
             "metric": "sdlogj"
         },
         {
@@ -36,5 +36,6 @@
             "moving": "./imagesTr/LungCT_0003_0001.nii.gz"
         }
     ],
-    "eval_config_version": 0.1
+    "eval_config_version": 0.2,
+    "masked_evaluation": true
 }

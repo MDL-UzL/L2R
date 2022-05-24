@@ -232,5 +232,6 @@
             "moving": "./imagesTr/AbdomenCTCT_0028_0000.nii.gz"
         }
     ],
-    "eval_config_version": 0.1
+    "eval_config_version": 0.2,
+    "masked_evaluation": false
 }

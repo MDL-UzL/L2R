@@ -51,6 +51,8 @@ def main(args):
 
     if verbose:
         print(f"Evaluate {len_eval_pairs} cases for: {[tmp['name'] for tmp in data['evaluation_methods']]}")
+    if use_mask and verbose:
+        print("Will use masks for evaluation.")
     for idx, pair in enumerate(eval_pairs):
         case_results={}
 
