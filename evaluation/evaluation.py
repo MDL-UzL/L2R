@@ -11,19 +11,9 @@ from surface_distance import *
 
 import os
 
-
-
-def main(args):
-    d_opt=vars(args)
-    verbose=d_opt['verbose']
-    DEFAULT_INPUT_PATH=Path(d_opt['input_path'])
-    DEFAULT_GROUND_TRUTH_PATH=Path(d_opt['gt_path'])
-    DEFAULT_CONFIG_JSON_PATH=Path(d_opt['config_path'])
-    DEFAULT_EVALUATION_OUTPUT_FILE_PATH=Path(d_opt['output_path'])
+def evaluate_L2R(INPUT_PATH,GT_PATH,OUTPUT_PATH,JSON_PATH,verbose=False):
     
-    #read evaluation_config.json
-    
-    with open(DEFAULT_CONFIG_JSON_PATH, 'r') as f:
+    with open(JSON_PATH, 'r') as f:
         data = json.load(f)
 
     name=data['task_name']
@@ -40,7 +30,7 @@ def main(args):
     #Check if files are complete beforehand
     for idx, pair in enumerate(eval_pairs):
         disp_name='disp_{}_{}'.format(pair['fixed'][-16:-12], pair['moving'][-16:-12]+'.nii.gz')
-        disp_path=os.path.join(DEFAULT_INPUT_PATH, disp_name)
+        disp_path=os.path.join(INPUT_PATH, disp_name)
         if os.path.isfile(disp_path):
             continue
         else:
@@ -56,10 +46,10 @@ def main(args):
     for idx, pair in enumerate(eval_pairs):
         case_results={}
 
-        fix_label_path=os.path.join(DEFAULT_GROUND_TRUTH_PATH, pair['fixed'].replace('images','labels'))
-        mov_label_path=os.path.join(DEFAULT_GROUND_TRUTH_PATH, pair['moving'].replace('images','labels'))
+        fix_label_path=os.path.join(GT_PATH, pair['fixed'].replace('images','labels'))
+        mov_label_path=os.path.join(GT_PATH, pair['moving'].replace('images','labels'))
         #with nii.gz
-        disp_path=os.path.join(DEFAULT_INPUT_PATH, 'disp_{}_{}'.format(pair['fixed'][-16:-12], pair['moving'][-16:-12]+'.nii.gz'))
+        disp_path=os.path.join(INPUT_PATH, 'disp_{}_{}'.format(pair['fixed'][-16:-12], pair['moving'][-16:-12]+'.nii.gz'))
         disp_field=nib.load(disp_path).get_fdata()
 
         shape = np.array(disp_field.shape)
@@ -68,8 +58,8 @@ def main(args):
 
         ## load neccessary files 
         if any([True for eval_ in ['tre'] if eval_ in evaluation_methods_metrics]):
-            spacing_fix=nib.load(os.path.join(DEFAULT_GROUND_TRUTH_PATH, pair['fixed'])).header.get_zooms()[:3]
-            spacing_mov=nib.load(os.path.join(DEFAULT_GROUND_TRUTH_PATH, pair['moving'])).header.get_zooms()[:3]
+            spacing_fix=nib.load(os.path.join(GT_PATH, pair['fixed'])).header.get_zooms()[:3]
+            spacing_mov=nib.load(os.path.join(GT_PATH, pair['moving'])).header.get_zooms()[:3]
 
         if any([True for eval_ in ['dice','hd95'] if eval_ in evaluation_methods_metrics]):
             fixed_seg=nib.load(fix_label_path).get_fdata()
@@ -80,7 +70,7 @@ def main(args):
         
         
         if use_mask:
-            mask_path= os.path.join(DEFAULT_GROUND_TRUTH_PATH, pair['fixed'].replace('images','masks'))
+            mask_path= os.path.join(GT_PATH, pair['fixed'].replace('images','masks'))
             if os.path.exists(mask_path):
                 mask=nib.load(mask_path).get_fdata()
                 mask_ready=True
@@ -120,8 +110,8 @@ def main(args):
             ### TRE
             if 'tre' == _eval['metric']:
                 destination = _eval['dest']
-                lms_fix_path = os.path.join(DEFAULT_GROUND_TRUTH_PATH, pair['fixed'].replace('images', destination).replace('.nii.gz','.csv'))
-                lms_mov_path = os.path.join(DEFAULT_GROUND_TRUTH_PATH, pair['moving'].replace('images', destination).replace('.nii.gz','.csv'))
+                lms_fix_path = os.path.join(GT_PATH, pair['fixed'].replace('images', destination).replace('.nii.gz','.csv'))
+                lms_mov_path = os.path.join(GT_PATH, pair['moving'].replace('images', destination).replace('.nii.gz','.csv'))
                 fix_lms = np.loadtxt(lms_fix_path, delimiter=',')
                 mov_lms = np.loadtxt(lms_mov_path, delimiter=',')
                 tre = compute_tre(fix_lms, mov_lms, disp_field ,spacing_fix, spacing_mov)
@@ -130,8 +120,7 @@ def main(args):
         if verbose:
             print(f'case_results [{idx}]: {case_results}')
         cases_results=pandas.concat([cases_results, pandas.DataFrame(case_results, index=[0])], ignore_index=True)
-
-        
+             
         
     aggregated_results = {}   
     for col in cases_results.columns:
@@ -148,8 +137,9 @@ def main(args):
     if verbose:
         print(json.dumps(aggregated_results, indent=4))
     
-    with open(os.path.join(DEFAULT_EVALUATION_OUTPUT_FILE_PATH), 'w') as f:
+    with open(os.path.join(OUTPUT_PATH), 'w') as f:
         json.dump(final_results, f, indent=4)
+
 
 if __name__=="__main__":
     parser=argparse.ArgumentParser(description='L2R Evaluation script\n'\
@@ -163,5 +153,5 @@ if __name__=="__main__":
     parser.add_argument("-c","--config", dest="config_path", help="path to config json-File (e.g. 'evaluation_config.json')", default='ground-truth/evaluation_config.json') 
     parser.add_argument("-v","--verbose", dest="verbose", action='store_true', default=False)
     args= parser.parse_args()
-    main(args)
-    
+    evaluate_L2R(args.input_path, args.gt_path, args.output_path, args.config_path, args.verbose)
+    print(a)
