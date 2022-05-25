@@ -154,4 +154,4 @@ if __name__=="__main__":
     parser.add_argument("-v","--verbose", dest="verbose", action='store_true', default=False)
     args= parser.parse_args()
     evaluate_L2R(args.input_path, args.gt_path, args.output_path, args.config_path, args.verbose)
-    print(a)
+    
