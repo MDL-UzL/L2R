@@ -76,8 +76,7 @@ if __name__ == "__main__":
     parser.add_argument("-o","--output", dest="output_dir", help="path to write evaluation.json", required=False, default='.')
     parser.add_argument("-s","--shape", dest='expected_shape', help="expected shape of deformation field", required=False, nargs='+', type=int)
     parser.add_argument("--test", dest="test", action=argparse.BooleanOptionalAction, default=False) #Otherwise Validation
-    #You can turn off using masks for evalauation, even if they are specified in the evaluation.json
-    parser.add_argument("--masks", dest="masks", action=argparse.BooleanOptionalAction, default=False) 
+    parser.add_argument("--masks", dest="masks", action=argparse.BooleanOptionalAction, default=False) #Use Masks in Evaluation
 
     parser.add_argument("--SDlogJ", dest="sdlogj", help="Evaluate SDlogJ", action=argparse.BooleanOptionalAction, default=False)
     parser.add_argument("--DSC", dest="dice", help="--DSC [name] [labels] /If input is single int, is is assumed to be max label",action='append',  nargs='+')
