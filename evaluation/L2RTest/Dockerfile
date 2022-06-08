@@ -6,7 +6,7 @@ ADD /surface-distance /surface-distance
 RUN groupadd -r evaluator && useradd -m --no-log-init -r -g evaluator evaluator
 
 RUN mkdir -p /opt/evaluation /input /output \
-    && chown evaluator:evaluator /opt/evaluation /input /output
+    && chown evaluator:evaluator /opt/evaluation /input /output /surface-distance
 
 USER evaluator
 WORKDIR /opt/evaluation
