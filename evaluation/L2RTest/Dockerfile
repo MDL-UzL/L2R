@@ -1,5 +1,6 @@
 FROM python:3.7-slim
 
+RUN apt-get update && apt-get -y install build-essential
 ADD /surface-distance /surface-distance
 
 RUN groupadd -r evaluator && useradd -m --no-log-init -r -g evaluator evaluator
