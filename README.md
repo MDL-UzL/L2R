@@ -5,7 +5,8 @@ Repository for additional L2R files
 
 Including:
 - evaluation files
-- utilites (soon)
+- a list of publicly available registration tools
+- utilities (soon)
 
 
 ## What is Learn2Reg?
@@ -37,3 +38,16 @@ Are you looking to benchmark your registration algorithm? Please visit https://l
 * low computation time for easier clinical translation evaluated using docker containers on GPUs provided by organisers.
 
 Any questions? Head to our forum at https://learn2reg.grand-challenge.org/ or mail us directly via learn2reg@gmail.com.
+
+######  Public methods of L2R partipants / baselines (alphabetical order)
+* Bailiang https://github.com/BailiangJ/learn2reg2021_task3
+* ConvexAdam :1st_place_medal: :1st_place_medal: :2nd_place_medal: :2nd_place_medal: :3rd_place_medal: :3rd_place_medal: https://github.com/multimodallearning/convexAdam
+* CorrField :1st_place_medal: :1st_place_medal: :2nd_place_medal: https://grand-challenge.org/algorithms/corrfield/
+* Estienne :3rd_place_medal: https://github.com/TheoEst/abdominal_registration
+* Gunnarson https://github.com/ngunnar/learning-a-deformable-registration-pyramid
+* Imperial https://github.com/biomedia-mira/istn
+* LapIRN :1st_place_medal: :1st_place_medal: :2nd_place_medal: :3rd_place_medal: https://github.com/cwmok/Conditional_LapIRN
+* Multi-brain https://github.com/WTCN-computational-anatomy-group/mb
+* Nifty-Reg https://github.com/KCL-BMEIS/niftyreg
+* PDD-Net :2nd_place_medal: https://github.com/multimodallearning/pdd_net
+* Winter https://github.com/WinterPan2017/ADLReg 
