@@ -55,8 +55,8 @@
             "moving": "./imagesTr/NLST_0109_0001.nii.gz"
         },
         {
-            "fixed": "./imagesTr/NLST_0101_0000.nii.gz",
-            "moving": "./imagesTr/NLST_0101_0001.nii.gz"
+            "fixed": "./imagesTr/NLST_0110_0000.nii.gz",
+            "moving": "./imagesTr/NLST_0110_0001.nii.gz"
         }
     ],
     "eval_config_version": 0.3,
