@@ -1,5 +1,5 @@
 {
-    "task_name": "NLST",
+    "task_name": "NLST", 
     "evaluation_methods": [
         {
             "name": "LogJacDetStd",
@@ -19,46 +19,46 @@
     ],
     "eval_pairs": [
         {
-            "fixed": "./imagesTr/NLST_0041_0000.nii.gz",
-            "moving": "./imagesTr/NLST_0041_0001.nii.gz"
+            "fixed": "./imagesTr/NLST_0101_0000.nii.gz",
+            "moving": "./imagesTr/NLST_0101_0001.nii.gz"
         },
         {
-            "fixed": "./imagesTr/NLST_0042_0000.nii.gz",
-            "moving": "./imagesTr/NLST_0042_0001.nii.gz"
+            "fixed": "./imagesTr/NLST_0102_0000.nii.gz",
+            "moving": "./imagesTr/NLST_0102_0001.nii.gz"
         },
         {
-            "fixed": "./imagesTr/NLST_0043_0000.nii.gz",
-            "moving": "./imagesTr/NLST_0043_0001.nii.gz"
+            "fixed": "./imagesTr/NLST_0103_0000.nii.gz",
+            "moving": "./imagesTr/NLST_0103_0001.nii.gz"
         },
         {
-            "fixed": "./imagesTr/NLST_0044_0000.nii.gz",
-            "moving": "./imagesTr/NLST_0044_0001.nii.gz"
+            "fixed": "./imagesTr/NLST_0104_0000.nii.gz",
+            "moving": "./imagesTr/NLST_0104_0001.nii.gz"
         },
         {
-            "fixed": "./imagesTr/NLST_0045_0000.nii.gz",
-            "moving": "./imagesTr/NLST_0045_0001.nii.gz"
+            "fixed": "./imagesTr/NLST_0105_0000.nii.gz",
+            "moving": "./imagesTr/NLST_0105_0001.nii.gz"
         },
         {
-            "fixed": "./imagesTr/NLST_0046_0000.nii.gz",
-            "moving": "./imagesTr/NLST_0046_0001.nii.gz"
+            "fixed": "./imagesTr/NLST_0106_0000.nii.gz",
+            "moving": "./imagesTr/NLST_0106_0001.nii.gz"
         },
         {
-            "fixed": "./imagesTr/NLST_0047_0000.nii.gz",
-            "moving": "./imagesTr/NLST_0047_0001.nii.gz"
+            "fixed": "./imagesTr/NLST_0107_0000.nii.gz",
+            "moving": "./imagesTr/NLST_0107_0001.nii.gz"
         },
         {
-            "fixed": "./imagesTr/NLST_0048_0000.nii.gz",
-            "moving": "./imagesTr/NLST_0048_0001.nii.gz"
+            "fixed": "./imagesTr/NLST_0108_0000.nii.gz",
+            "moving": "./imagesTr/NLST_0108_0001.nii.gz"
         },
         {
-            "fixed": "./imagesTr/NLST_0049_0000.nii.gz",
-            "moving": "./imagesTr/NLST_0049_0001.nii.gz"
+            "fixed": "./imagesTr/NLST_0109_0000.nii.gz",
+            "moving": "./imagesTr/NLST_0109_0001.nii.gz"
         },
         {
-            "fixed": "./imagesTr/NLST_0050_0000.nii.gz",
-            "moving": "./imagesTr/NLST_0050_0001.nii.gz"
+            "fixed": "./imagesTr/NLST_0101_0000.nii.gz",
+            "moving": "./imagesTr/NLST_0101_0001.nii.gz"
         }
     ],
-    "eval_config_version": 0.2,
+    "eval_config_version": 0.3,
     "masked_evaluation": true
 }
