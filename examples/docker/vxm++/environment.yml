@@ -1,0 +1,12 @@
+name: corrfield
+channels:
+  - conda
+  - pytorch
+dependencies:
+  - nibabel
+  - numpy
+  - pytorch
+  - cudatoolkit=11.3
+  - matplotlib
+  - tqdm
+  - torchvision
