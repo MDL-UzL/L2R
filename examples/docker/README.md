@@ -22,7 +22,7 @@ Heinrich, Mattias P., and Lasse Hansen. "Voxelmorph++ Going beyond the cranial v
 
 We recommend using [repo2docker](https://github.com/jupyterhub/repo2docker) to containerize these algorithms:
 
-`jupyter-repo2docker --no-run --user-name l2r --imagevxmplus example_submissions/vxm++/`
+`jupyter-repo2docker --no-run --user-name l2r --image vxmplus example_submissions/vxm++/`
 
 To start training simply call
 
