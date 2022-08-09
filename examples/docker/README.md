@@ -28,7 +28,7 @@ To start training simply call
 
 ```bash
 docker run --entrypoint /home/l2r/train.sh --gpus all
--v /PATH/TO/Learn2Reg_Dataset_release_v1.1/AdbomenMRCT/:/home/l2r/data
+-v /PATH/TO/Learn2Reg_Dataset_release_v1.1/AbdomenMRCT/:/home/l2r/data
 -v /PATH/TO/OUTPUT/:/home/l2r/output
 -v /PATH/TO/MODEL_FOLDER/:/home/l2r/models
 vxmplus /PATH/TO/AbdomenMRCT_dataset.json 15000
@@ -39,7 +39,8 @@ For inference:
 
 ```bash
 docker run --entrypoint /home/l2r/test.sh --gpus all
--v /PATH/TO/Learn2Reg_Dataset_release_v1.1/AdbomenMRCT/:/home/l2r/data
+-v /PATH/TO/Learn2Reg_Dataset_release_v1.1/AbdomenMRCT
+/:/home/l2r/data
 -v /PATH/TO/OUTPUT/:/home/l2r/output
 -v /PATH/TO/MODEL_FOLDER/:/home/l2r/models
 vxmplus /PATH/TO/AbdomenMRCT_dataset.json
