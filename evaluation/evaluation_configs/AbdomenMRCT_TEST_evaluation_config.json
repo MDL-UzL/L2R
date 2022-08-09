@@ -1,0 +1,71 @@
+{
+    "task_name": "AbdomenMRCT",
+    "evaluation_methods": [
+        {
+            "name": "LogJacDetStd",
+            "metric": "sdlogj"
+        },
+        {
+            "name": "DSC",
+            "metric": "dice",
+            "labels": [
+                1,
+                2,
+                3,
+                4
+            ]
+        },
+        {
+            "name": "HD95",
+            "metric": "hd95",
+            "labels": [
+                1,
+                2,
+                3,
+                4
+            ]
+        }
+    ],
+    "expected_shape": [
+        192,
+        160,
+        192,
+        3
+    ],
+    "eval_pairs": [
+        {
+            "fixed": "./imagesTs/AbdomenMRCT_0009_0000.nii.gz",
+            "moving": "./imagesTs/AbdomenMRCT_0009_0001.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/AbdomenMRCT_0010_0000.nii.gz",
+            "moving": "./imagesTs/AbdomenMRCT_0010_0001.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/AbdomenMRCT_0011_0000.nii.gz",
+            "moving": "./imagesTs/AbdomenMRCT_0011_0001.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/AbdomenMRCT_0012_0000.nii.gz",
+            "moving": "./imagesTs/AbdomenMRCT_0012_0001.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/AbdomenMRCT_0013_0000.nii.gz",
+            "moving": "./imagesTs/AbdomenMRCT_0013_0001.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/AbdomenMRCT_0014_0000.nii.gz",
+            "moving": "./imagesTs/AbdomenMRCT_0014_0001.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/AbdomenMRCT_0015_0000.nii.gz",
+            "moving": "./imagesTs/AbdomenMRCT_0015_0001.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/AbdomenMRCT_0016_0000.nii.gz",
+            "moving": "./imagesTs/AbdomenMRCT_0016_0001.nii.gz"
+        }
+    ],
+    "eval_config_version": 0.2,
+    "masked_evaluation": true
+}

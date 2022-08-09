@@ -1,0 +1,64 @@
+{
+    "task_name": "CuRIOUS",
+    "evaluation_methods": [
+        {
+            "name": "LogJacDetStd",
+            "metric": "sdlogj"
+        },
+        {
+            "name": "TRE_lm",
+            "metric": "tre",
+            "dest": "landmarks"
+        }
+    ],
+    "expected_shape": [
+        256,
+        256,
+        288,
+        3
+    ],
+    "eval_pairs": [
+        {
+            "fixed": "./imagesTs/CuRIOUS_0023_0000.nii.gz",
+            "moving": "./imagesTs/CuRIOUS_0023_0002.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/CuRIOUS_0024_0000.nii.gz",
+            "moving": "./imagesTs/CuRIOUS_0024_0002.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/CuRIOUS_0025_0000.nii.gz",
+            "moving": "./imagesTs/CuRIOUS_0025_0002.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/CuRIOUS_0026_0000.nii.gz",
+            "moving": "./imagesTs/CuRIOUS_0026_0002.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/CuRIOUS_0027_0000.nii.gz",
+            "moving": "./imagesTs/CuRIOUS_0027_0002.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/CuRIOUS_0028_0000.nii.gz",
+            "moving": "./imagesTs/CuRIOUS_0028_0002.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/CuRIOUS_0029_0000.nii.gz",
+            "moving": "./imagesTs/CuRIOUS_0029_0002.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/CuRIOUS_0030_0000.nii.gz",
+            "moving": "./imagesTs/CuRIOUS_0030_0002.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/CuRIOUS_0031_0000.nii.gz",
+            "moving": "./imagesTs/CuRIOUS_0031_0002.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/CuRIOUS_0032_0000.nii.gz",
+            "moving": "./imagesTs/CuRIOUS_0032_0002.nii.gz"
+        }
+    ],
+    "eval_config_version": 0.2,
+    "masked_evaluation": false
+}

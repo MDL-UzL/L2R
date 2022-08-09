@@ -1,0 +1,555 @@
+{
+    "task_name": "HippocampusMR",
+    "evaluation_methods": [
+        {
+            "name": "LogJacDetStd",
+            "metric": "sdlogj"
+        },
+        {
+            "name": "DSC",
+            "metric": "dice",
+            "labels": [
+                1,
+                2
+            ]
+        },
+        {
+            "name": "HD95",
+            "metric": "hd95",
+            "labels": [
+                1,
+                2
+            ]
+        }
+    ],
+    "expected_shape": [
+        64,
+        64,
+        64,
+        3
+    ],
+    "eval_pairs": [
+        {
+            "fixed": "./imagesTs/HippocampusMR_0261_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0390_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0262_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0389_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0263_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0388_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0264_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0387_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0265_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0386_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0266_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0385_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0267_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0384_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0268_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0383_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0269_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0382_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0270_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0381_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0271_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0380_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0272_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0379_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0273_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0378_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0274_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0377_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0275_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0376_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0276_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0375_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0277_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0374_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0278_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0373_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0279_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0372_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0280_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0371_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0281_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0370_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0282_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0369_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0283_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0368_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0284_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0367_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0285_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0366_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0286_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0365_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0287_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0364_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0288_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0363_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0289_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0362_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0290_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0361_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0291_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0360_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0292_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0359_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0293_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0358_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0294_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0357_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0295_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0356_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0296_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0355_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0297_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0354_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0298_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0353_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0299_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0352_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0300_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0351_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0301_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0350_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0302_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0349_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0303_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0348_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0304_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0347_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0305_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0346_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0306_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0345_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0307_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0344_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0308_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0343_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0309_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0342_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0310_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0341_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0311_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0340_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0312_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0339_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0313_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0338_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0314_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0337_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0315_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0336_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0316_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0335_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0317_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0334_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0318_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0333_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0319_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0332_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0320_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0331_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0321_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0330_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0322_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0329_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0323_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0328_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0324_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0327_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0325_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0326_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0326_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0325_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0327_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0324_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0328_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0323_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0329_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0322_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0330_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0321_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0331_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0320_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0332_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0319_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0333_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0318_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0334_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0317_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0335_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0316_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0336_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0315_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0337_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0314_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0338_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0313_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0339_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0312_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0340_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0311_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0341_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0310_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0342_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0309_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0343_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0308_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0344_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0307_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0345_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0306_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0346_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0305_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0347_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0304_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0348_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0303_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0349_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0302_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0350_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0301_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0351_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0300_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0352_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0299_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0353_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0298_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0354_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0297_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0355_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0296_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0356_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0295_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0357_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0294_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0358_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0293_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0359_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0292_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0360_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0291_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0361_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0290_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0362_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0289_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0363_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0288_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0364_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0287_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0365_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0286_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0366_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0285_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0367_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0284_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0368_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0283_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0369_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0282_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0370_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0281_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0371_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0280_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0372_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0279_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0373_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0278_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0374_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0277_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0375_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0276_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0376_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0275_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0377_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0274_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0378_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0273_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0379_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0272_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0380_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0271_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0381_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0270_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0382_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0269_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0383_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0268_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0384_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0267_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0385_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0266_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0386_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0265_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0387_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0264_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0388_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0263_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0389_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0262_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTs/HippocampusMR_0390_0000.nii.gz",
+            "moving": "./imagesTs/HippocampusMR_0261_0000.nii.gz"
+        }
+    ],
+    "eval_config_version": 0.2,
+    "masked_evaluation": false
+}

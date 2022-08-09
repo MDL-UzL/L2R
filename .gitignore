@@ -3,7 +3,6 @@
 pairs_test.csv
 testing_debug
 **/L2RTest/metrics.json
-**/*_TEST_evaluation_config.json
 **/**/outputs/
 
 # Byte-compiled / optimized / DLL files
