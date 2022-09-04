@@ -174,3 +174,10 @@ tmp/OASIS_dataset.json
 metrics.json
 .vscode/launch.json
 tmp/NLST_dataset.json
+examples/submission/zerofield/Dockerfile
+examples/submission/zerofield/requirements.txt
+examples/submission/zerofield_test/Dockerfile
+examples/submission/zerofield_test/environment.yml
+examples/submission/zerofield_test/requirements.txt
+examples/submission/zerofield_test/test.sh
+examples/submission/zerofield_test/zerofield.py
