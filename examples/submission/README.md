@@ -36,5 +36,5 @@ Inference:
 
 ```bash
 docker run --rm  --mount src="/PATH/TO/DATA/NLST/",target=/l2r/data,type=bind 
---mount src="/PATH/TO/OUTPUT/",target=/l2r/output,type=bind nlst_dockerd -c /l2r/data/NLST_dataset.json
+--mount src="/PATH/TO/OUTPUT/",target=/l2r/output,type=bind nlst_submission -c /l2r/data/NLST_dataset.json
 ```
