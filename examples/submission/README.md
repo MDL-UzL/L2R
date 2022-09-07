@@ -29,7 +29,7 @@ Of course, you may use docker without `jupyter-repo2docker`as well:
 Build the docker:
 
 ```bash
-docker build -t nlst_submission 
+docker build -t nlst_submission zerofield/
 ```
 
 Inference:
