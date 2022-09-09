@@ -92,6 +92,7 @@ def evaluate_L2R(INPUT_PATH,GT_PATH,OUTPUT_PATH,JSON_PATH,verbose=False):
                     case_results[_name]=np.ma.MaskedArray(log_jac_det, 1-mask[2:-2, 2:-2, 2:-2]).std()
                 else:
                     case_results[_name]=log_jac_det.std()
+                case_results['num_foldings']=(jac_det <= 0).astype(float).sum()
 
 
 
