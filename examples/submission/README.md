@@ -20,7 +20,7 @@ Inference:
 ```bash
 docker run --entrypoint /home/l2r/test.sh --gpus all 
 -v /PATH_TO_DATA/NLST/:/home/l2r/data 
--v /PATH_TO_DATA/OUTPUT:/home/l2r/output 
+-v /PATH_TO_OUTPUT/:/home/l2r/output 
 zerofield /home/l2r/data/NLST_dataset.json
 ```
 
