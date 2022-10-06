@@ -145,7 +145,7 @@ if __name__ == "__main__":
             if(i%2==0):
                 A = (torch.randn(3,4)*.035+torch.eye(3,4)).cuda()
                 affine = F.affine_grid(A.unsqueeze(0),(1,1,H//2,W//2,D//2))
-                keypts_fix = torch.linalg.solve(torch.cat((keypts_fix,torch.ones(keypts_fix.shape[0],1).cuda()),1).t(),\
+                keypts_fix = torch.solve(torch.cat((keypts_fix,torch.ones(keypts_fix.shape[0],1).cuda()),1).t(),\
                                          torch.cat((A,torch.tensor([0,0,0,1]).cuda().view(1,-1)),0))[0].t()[:,:3]
                 fixed_mask = F.grid_sample(mask_all[ii,:1].view(1,1,H,W,D).cuda().half(),affine.half())
                 fixed_img = F.grid_sample(img_all[ii,:1].view(1,1,H//2,W//2,D//2).cuda().half(),affine.half())
@@ -156,7 +156,7 @@ if __name__ == "__main__":
             if(i%2==1):
                 A = (torch.randn(3,4)*.035+torch.eye(3,4)).cuda()
                 affine = F.affine_grid(A.unsqueeze(0),(1,1,H//2,W//2,D//2))
-                keypts_mov = torch.linalg.solve(torch.cat((keypts_mov,torch.ones(keypts_mov.shape[0],1).cuda()),1).t(),\
+                keypts_mov = torch.solve(torch.cat((keypts_mov,torch.ones(keypts_mov.shape[0],1).cuda()),1).t(),\
                                          torch.cat((A,torch.tensor([0,0,0,1]).cuda().view(1,-1)),0))[0].t()[:,:3]
                 moving_mask = F.grid_sample(mask_all[ii,1:].view(1,1,H,W,D).cuda().half(),affine.half())
                 moving_img = F.grid_sample(img_all[ii,1:].view(1,1,H//2,W//2,D//2).cuda().half(),affine.half())
