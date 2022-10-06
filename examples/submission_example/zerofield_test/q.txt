@@ -1,0 +1,2 @@
+docker build -t nlst_dockerd .
+docker run --rm  --mount src="/share/data_zoe3/grossbroehmer/Learn2Reg2022/Learn2Reg_Dataset_v11/NLST/",target=/l2r/data,type=bind --mount src="/share/data_zoe3/grossbroehmer/Learn2Reg2022/L2R/examples/submission/zerofield/out/",target=/l2r/output,type=bind nlst_dockerd -c /l2r/data/NLST_dataset.json

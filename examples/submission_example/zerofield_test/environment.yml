@@ -1,0 +1,4 @@
+name: zerofield
+dependencies:
+  - nibabel
+  - numpy
