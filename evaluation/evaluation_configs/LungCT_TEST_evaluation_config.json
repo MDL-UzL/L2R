@@ -9,11 +9,6 @@
             "name": "TRE_lm",
             "metric": "tre",
             "dest": "landmarks"
-        },
-        {
-            "name": "TRE_kp",
-            "metric": "tre",
-            "dest": "keypoints"
         }
     ],
     "expected_shape": [
