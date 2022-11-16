@@ -210,3 +210,4 @@ examples/submission/zerofield/out/disp_0138_0138.nii.gz
 examples/submission/zerofield/out/disp_0139_0139.nii.gz
 examples/submission/zerofield/out/disp_0140_0140.nii.gz
 examples/submission/zerofield_test/q.txt
+evaluation/test.ipynb

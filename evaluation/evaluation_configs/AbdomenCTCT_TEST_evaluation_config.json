@@ -57,10 +57,6 @@
         },
         {
             "fixed": "./imagesTs/AbdomenCTCT_0031_0000.nii.gz",
-            "moving": "./imagesTs/AbdomenCTCT_0034_0000.nii.gz"
-        },
-        {
-            "fixed": "./imagesTs/AbdomenCTCT_0031_0000.nii.gz",
             "moving": "./imagesTs/AbdomenCTCT_0036_0000.nii.gz"
         },
         {
@@ -70,10 +66,6 @@
         {
             "fixed": "./imagesTs/AbdomenCTCT_0031_0000.nii.gz",
             "moving": "./imagesTs/AbdomenCTCT_0040_0000.nii.gz"
-        },
-        {
-            "fixed": "./imagesTs/AbdomenCTCT_0031_0000.nii.gz",
-            "moving": "./imagesTs/AbdomenCTCT_0042_0000.nii.gz"
         },
         {
             "fixed": "./imagesTs/AbdomenCTCT_0031_0000.nii.gz",
@@ -93,10 +85,6 @@
         },
         {
             "fixed": "./imagesTs/AbdomenCTCT_0033_0000.nii.gz",
-            "moving": "./imagesTs/AbdomenCTCT_0034_0000.nii.gz"
-        },
-        {
-            "fixed": "./imagesTs/AbdomenCTCT_0033_0000.nii.gz",
             "moving": "./imagesTs/AbdomenCTCT_0036_0000.nii.gz"
         },
         {
@@ -106,10 +94,6 @@
         {
             "fixed": "./imagesTs/AbdomenCTCT_0033_0000.nii.gz",
             "moving": "./imagesTs/AbdomenCTCT_0040_0000.nii.gz"
-        },
-        {
-            "fixed": "./imagesTs/AbdomenCTCT_0033_0000.nii.gz",
-            "moving": "./imagesTs/AbdomenCTCT_0042_0000.nii.gz"
         },
         {
             "fixed": "./imagesTs/AbdomenCTCT_0033_0000.nii.gz",
@@ -141,10 +125,6 @@
         },
         {
             "fixed": "./imagesTs/AbdomenCTCT_0035_0000.nii.gz",
-            "moving": "./imagesTs/AbdomenCTCT_0042_0000.nii.gz"
-        },
-        {
-            "fixed": "./imagesTs/AbdomenCTCT_0035_0000.nii.gz",
             "moving": "./imagesTs/AbdomenCTCT_0044_0000.nii.gz"
         },
         {
@@ -169,10 +149,6 @@
         },
         {
             "fixed": "./imagesTs/AbdomenCTCT_0037_0000.nii.gz",
-            "moving": "./imagesTs/AbdomenCTCT_0042_0000.nii.gz"
-        },
-        {
-            "fixed": "./imagesTs/AbdomenCTCT_0037_0000.nii.gz",
             "moving": "./imagesTs/AbdomenCTCT_0044_0000.nii.gz"
         },
         {
@@ -193,10 +169,6 @@
         },
         {
             "fixed": "./imagesTs/AbdomenCTCT_0039_0000.nii.gz",
-            "moving": "./imagesTs/AbdomenCTCT_0042_0000.nii.gz"
-        },
-        {
-            "fixed": "./imagesTs/AbdomenCTCT_0039_0000.nii.gz",
             "moving": "./imagesTs/AbdomenCTCT_0044_0000.nii.gz"
         },
         {
@@ -209,42 +181,6 @@
         },
         {
             "fixed": "./imagesTs/AbdomenCTCT_0039_0000.nii.gz",
-            "moving": "./imagesTs/AbdomenCTCT_0050_0000.nii.gz"
-        },
-        {
-            "fixed": "./imagesTs/AbdomenCTCT_0041_0000.nii.gz",
-            "moving": "./imagesTs/AbdomenCTCT_0042_0000.nii.gz"
-        },
-        {
-            "fixed": "./imagesTs/AbdomenCTCT_0041_0000.nii.gz",
-            "moving": "./imagesTs/AbdomenCTCT_0044_0000.nii.gz"
-        },
-        {
-            "fixed": "./imagesTs/AbdomenCTCT_0041_0000.nii.gz",
-            "moving": "./imagesTs/AbdomenCTCT_0046_0000.nii.gz"
-        },
-        {
-            "fixed": "./imagesTs/AbdomenCTCT_0041_0000.nii.gz",
-            "moving": "./imagesTs/AbdomenCTCT_0048_0000.nii.gz"
-        },
-        {
-            "fixed": "./imagesTs/AbdomenCTCT_0041_0000.nii.gz",
-            "moving": "./imagesTs/AbdomenCTCT_0050_0000.nii.gz"
-        },
-        {
-            "fixed": "./imagesTs/AbdomenCTCT_0043_0000.nii.gz",
-            "moving": "./imagesTs/AbdomenCTCT_0044_0000.nii.gz"
-        },
-        {
-            "fixed": "./imagesTs/AbdomenCTCT_0043_0000.nii.gz",
-            "moving": "./imagesTs/AbdomenCTCT_0046_0000.nii.gz"
-        },
-        {
-            "fixed": "./imagesTs/AbdomenCTCT_0043_0000.nii.gz",
-            "moving": "./imagesTs/AbdomenCTCT_0048_0000.nii.gz"
-        },
-        {
-            "fixed": "./imagesTs/AbdomenCTCT_0043_0000.nii.gz",
             "moving": "./imagesTs/AbdomenCTCT_0050_0000.nii.gz"
         },
         {
