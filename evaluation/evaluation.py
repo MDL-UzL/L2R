@@ -38,6 +38,7 @@ def evaluate_L2R(INPUT_PATH,GT_PATH,OUTPUT_PATH,JSON_PATH,verbose=False):
 
     #Dataframe for Case results
     cases_results=pandas.DataFrame()
+    cases_details={}
 
     if verbose:
         print(f"Evaluate {len_eval_pairs} cases for: {[tmp['name'] for tmp in data['evaluation_methods']]}")
@@ -45,6 +46,7 @@ def evaluate_L2R(INPUT_PATH,GT_PATH,OUTPUT_PATH,JSON_PATH,verbose=False):
         print("Will use masks for evaluation.")
     for idx, pair in enumerate(eval_pairs):
         case_results={}
+        case_details={}
 
         fix_label_path=os.path.join(GT_PATH, pair['fixed'].replace('images','labels'))
         mov_label_path=os.path.join(GT_PATH, pair['moving'].replace('images','labels'))
@@ -93,20 +95,21 @@ def evaluate_L2R(INPUT_PATH,GT_PATH,OUTPUT_PATH,JSON_PATH,verbose=False):
                 else:
                     case_results[_name]=log_jac_det.std()
                 case_results['num_foldings']=(jac_det <= 0).astype(float).sum()
-
-
+                #copy into detailed evaluation
+                case_details[_name]=case_results[_name]
+                case_details['num_foldings']=case_results['num_foldings']
 
             ### DSC
             if 'dice' == _eval['metric']:
                 labels = _eval['labels']
                 dice = compute_dice(fixed_seg,moving_seg,warped_seg,labels)
-                case_results[_name]=dice
+                case_results[_name],case_details[_name]=dice
 
             ### HD95
             if 'hd95' == _eval['metric']:
                 labels = _eval['labels']
                 hd95 = compute_hd95(fixed_seg,moving_seg,warped_seg,labels)
-                case_results[_name]=hd95
+                case_results[_name],case_details[_name]=hd95
         
             ### TRE
             if 'tre' == _eval['metric']:
@@ -121,6 +124,7 @@ def evaluate_L2R(INPUT_PATH,GT_PATH,OUTPUT_PATH,JSON_PATH,verbose=False):
         if verbose:
             print(f'case_results [{idx}]: {case_results}')
         cases_results=pandas.concat([cases_results, pandas.DataFrame(case_results, index=[0])], ignore_index=True)
+        cases_details[idx]=case_details
              
         
     aggregated_results = {}   
@@ -131,7 +135,8 @@ def evaluate_L2R(INPUT_PATH,GT_PATH,OUTPUT_PATH,JSON_PATH,verbose=False):
     final_results={
         name: {
             "case": cases_results.to_dict(),
-            "aggregates": aggregated_results
+            "aggregates": aggregated_results,
+            "detailed" : cases_details
     }}
 
     #print(f'aggregated_results [{name}]: {aggregated_results}')

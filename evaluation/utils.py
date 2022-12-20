@@ -49,26 +49,24 @@ def compute_tre(fix_lms, mov_lms, disp, spacing_fix, spacing_mov):
 
 
 def compute_dice(fixed,moving,moving_warped,labels):
-    dice = 0
-    count = 0
+    dice = []
     for i in labels:
         if ((fixed==i).sum()==0) or ((moving==i).sum()==0):
-            continue
-        dice += compute_dice_coefficient((fixed==i), (moving_warped==i))
-        count += 1
-    dice /= count
-    return dice
+            dice.append(np.NAN)
+        else:
+            dice.append(compute_dice_coefficient((fixed==i), (moving_warped==i)))
+    mean_dice = np.nanmean(dice)
+    return mean_dice, dice
     
 def compute_hd95(fixed,moving,moving_warped,labels):
-    hd95 = 0
-    count = 0
+    hd95 = []
     for i in labels:
         if ((fixed==i).sum()==0) or ((moving==i).sum()==0):
-            continue
-        hd95 += compute_robust_hausdorff(compute_surface_distances((fixed==i), (moving_warped==i), np.ones(3)), 95.)
-        count += 1
-    hd95 /= count
-    return hd95
+            hd95.append(np.NAN)
+        else:
+            hd95.append(compute_robust_hausdorff(compute_surface_distances((fixed==i), (moving_warped==i), np.ones(3)), 95.))
+    mean_hd95 =  np.nanmean(hd95)
+    return mean_hd95,hd95
 
 ##### validation errors #####
 def raise_missing_file_error(fname):
