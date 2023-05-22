@@ -4,6 +4,8 @@ pairs_test.csv
 testing_debug
 **/L2RTest/metrics.json
 **/**/outputs/
+*to_delete*
+*todelete*
 
 # Byte-compiled / optimized / DLL files
 **/__pycache__/
@@ -211,3 +213,4 @@ examples/submission/zerofield/out/disp_0139_0139.nii.gz
 examples/submission/zerofield/out/disp_0140_0140.nii.gz
 examples/submission/zerofield_test/q.txt
 evaluation/test.ipynb
+.vscode/settings.json
