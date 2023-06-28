@@ -42,7 +42,7 @@ def evaluate_L2R(INPUT_PATH, GT_PATH, OUTPUT_PATH, JSON_PATH, verbose=False):
                 continue
         elif os.path.isfile(os.path.join(INPUT_PATH, disp_full_name)):
             continue
-        raise_missing_file_error(disp_lazy_name)
+        raise_missing_file_error(disp_full_name)
 
     if verbose:
         print(
@@ -55,24 +55,16 @@ def evaluate_L2R(INPUT_PATH, GT_PATH, OUTPUT_PATH, JSON_PATH, verbose=False):
         fix_subject, fix_modality = pair['fixed'][-16:-12], pair['fixed'][-11:-7]
         mov_subject, mov_modality = pair['moving'][-16:-12], pair['moving'][-11:-7]
 
-        #if (fix_subject == mov_subject or (fix_modality == '0000' and mov_modality == '0001')):
-            # use keypoi
-
-        #pairs_string = [pair['fixed'][-16:-12], pair['moving'][-16:-12]]
-
         fix_label_path = os.path.join(
             GT_PATH, pair['fixed'].replace('images', 'labels'))
         mov_label_path = os.path.join(
             GT_PATH, pair['moving'].replace('images', 'labels'))
         # with nii.gz
 
-
-        #disp_path = os.path.join(INPUT_PATH, 'disp_{}_{}'.format(
-        #    fix_subject, mov_subject+'.nii.gz'))
-
         # allow short displacement file names when 
         # a) same modalities
         # b) modality is the same or modality is 0 and 1
+
         disp_lazy_name = f"disp_{fix_subject}_{mov_subject}.nii.gz"
         disp_full_name = f"disp_{fix_subject}_{fix_modality}_{mov_subject}_{mov_modality}.nii.gz"
 
@@ -151,8 +143,9 @@ def evaluate_L2R(INPUT_PATH, GT_PATH, OUTPUT_PATH, JSON_PATH, verbose=False):
                 destination = _eval['dest']
                 ## corrfield correspondences are calculated for corresponding images
                 ## therefore, if modalities are different, the keypoint paths have to be changed
-                ## normally : keypointsTr / keypointsTs
-                ## then: keypoints01Tr / keypoints02Tr 
+                ## if same modalities : keypointsTr / keypointsTs
+                ## if different modalities: keypoints01Tr / keypoints02Tr 
+
                 if destination == 'keypoints' and not (fix_modality == mov_modality or (fix_modality == '0000' and mov_modality == '0001')):
                     modality_suffix = sorted([int(fix_modality), int(mov_modality)])
                     modality_suffix = str(modality_suffix[0]) + str(modality_suffix[1])
@@ -165,6 +158,7 @@ def evaluate_L2R(INPUT_PATH, GT_PATH, OUTPUT_PATH, JSON_PATH, verbose=False):
                         'images', destination).replace('.nii.gz', '.csv'))
                     lms_mov_path = os.path.join(GT_PATH, pair['moving'].replace(
                         'images', destination).replace('.nii.gz', '.csv'))
+                    
                 fix_lms = np.loadtxt(lms_fix_path, delimiter=',')
                 mov_lms = np.loadtxt(lms_mov_path, delimiter=',')
                 tre = compute_tre(fix_lms, mov_lms, disp_field,
@@ -173,11 +167,10 @@ def evaluate_L2R(INPUT_PATH, GT_PATH, OUTPUT_PATH, JSON_PATH, verbose=False):
                 detailed = tre.tolist()
                 case_results[_name] = {'mean': mean, 'detailed': detailed}
 
-        #cases_results[pairs_string[0]+'-->'+pairs_string[1]] = case_results
-        cases_results[f'{fix_subject}_{fix_modality}-->{mov_subject}_{mov_modality}'] = case_results
+        cases_results[f'{fix_subject}_{fix_modality}<--{mov_subject}_{mov_modality}'] = case_results
         if verbose:
             print(
-                f"case_results [{idx}] [{fix_subject}_{fix_modality}-->{mov_subject}_{mov_modality}']:")
+                f"case_results [{idx}] [{fix_subject}_{fix_modality}<--{mov_subject}_{mov_modality}']:")
             for k, v in case_results.items():
                 print(f"\t{k: <{20}}: {v['mean']:.5f}")
 
@@ -185,6 +178,7 @@ def evaluate_L2R(INPUT_PATH, GT_PATH, OUTPUT_PATH, JSON_PATH, verbose=False):
     metrics = list(list(cases_results.values())[2].keys())
     for metric in metrics:
         for k, v in cases_results.items():
+
             # calculate mean of all cases
             all_means_metric = np.array(
                 [cases_results[k][metric]['mean'] for k in cases_results.keys()])
