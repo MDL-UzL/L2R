@@ -6,7 +6,6 @@ testing_debug
 **/**/outputs/
 *to_delete*
 *todelete*
-**/ThoraxCBCT/
 **/LungCT_VAL/
 
 # Byte-compiled / optimized / DLL files
