@@ -34,15 +34,18 @@ def evaluate_L2R(INPUT_PATH, GT_PATH, OUTPUT_PATH, JSON_PATH, verbose=False):
         # b) modality is the same or modality is 0 and 1
         fix_subject, fix_modality = pair['fixed'][-16:-12], pair['fixed'][-11:-7]
         mov_subject, mov_modality = pair['moving'][-16:-12], pair['moving'][-11:-7]
-        disp_lazy_name = f"disp_{fix_subject}_{mov_subject}.nii.gz"
-        disp_full_name = f"disp_{fix_subject}_{fix_modality}_{mov_subject}_{mov_modality}.nii.gz"
+
+        ##allow for npz files
+
+        disp_lazy_name = f"disp_{fix_subject}_{mov_subject}"
+        disp_full_name = f"disp_{fix_subject}_{fix_modality}_{mov_subject}_{mov_modality}"
 
         if (fix_modality == mov_modality or (fix_modality == '0000' and mov_modality == '0001')):
-            if os.path.isfile(os.path.join(INPUT_PATH, disp_lazy_name)):
+            if os.path.isfile(os.path.join(INPUT_PATH, disp_lazy_name+'.npz')) or os.path.isfile(os.path.join(INPUT_PATH, disp_lazy_name+'.nii.gz')):
                 continue
-        elif os.path.isfile(os.path.join(INPUT_PATH, disp_full_name)):
+        elif os.path.isfile(os.path.join(INPUT_PATH, disp_full_name+'.npz')) or os.path.isfile(os.path.join(INPUT_PATH, disp_full_name+'.nii.gz')):
             continue
-        raise_missing_file_error(disp_full_name)
+        raise_missing_file_error(disp_full_name+'[.nii.gz/.npz]')
 
     if verbose:
         print(
@@ -65,13 +68,22 @@ def evaluate_L2R(INPUT_PATH, GT_PATH, OUTPUT_PATH, JSON_PATH, verbose=False):
         # a) same modalities
         # b) modality is the same or modality is 0 and 1
 
-        disp_lazy_name = f"disp_{fix_subject}_{mov_subject}.nii.gz"
-        disp_full_name = f"disp_{fix_subject}_{fix_modality}_{mov_subject}_{mov_modality}.nii.gz"
+        disp_lazy_name = f"disp_{fix_subject}_{mov_subject}"
+        disp_full_name = f"disp_{fix_subject}_{fix_modality}_{mov_subject}_{mov_modality}"
 
-        if (fix_modality == mov_modality or (fix_modality == '0000' and mov_modality == '0001')) and os.path.isfile(os.path.join(INPUT_PATH, disp_lazy_name)):
-            disp_field = nib.load(os.path.join(INPUT_PATH, disp_lazy_name)).get_fdata() 
+        corrfield_kpts_condition = (fix_modality == mov_modality or (fix_modality == '0000' and mov_modality == '0001'))
+
+        if corrfield_kpts_condition:
+            for file in [disp_lazy_name+'.npz', disp_lazy_name+'.nii.gz']:
+                if os.path.isfile(os.path.join(INPUT_PATH, file)):
+                    disp_field = load_disp(os.path.join(INPUT_PATH, file))
+                    break
         else:
-            disp_field = nib.load(os.path.join(INPUT_PATH, disp_full_name)).get_fdata()
+            for file in [disp_full_name+'.npz', disp_full_name+'.nii.gz']:
+                if os.path.isfile(os.path.join(INPUT_PATH, file)):
+                    disp_field = load_disp(os.path.join(INPUT_PATH, file))
+                    break
+
         shape = np.array(disp_field.shape)
         if not np.all(shape == expected_shape):
             raise_shape_error(f'{fix_subject}_{fix_modality}-->{mov_subject}_{mov_modality}', shape, expected_shape) ##error here

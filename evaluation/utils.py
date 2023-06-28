@@ -89,3 +89,19 @@ def raise_shape_error(fname, shape, expected_shape):
         f"The expected shape of displacement fields for this task is {expected_shape[0]}x{expected_shape[1]}x{expected_shape[2]}x{expected_shape[3]}."
     )
     raise ValidationError(message)
+
+
+##### load displacement field #####
+def load_disp(fname):
+    ##if .nii.gz use nibabel
+    ##if .npy use numpy
+    ##else raise error
+    if fname.endswith('.nii.gz'):
+        disp = nib.load(fname).get_fdata()
+    elif fname.endswith('.npz'):
+        disp = np.load(fname, allow_pickle=True)['arr_0']
+        if disp.dtype != np.float64:
+            disp = disp.astype(np.float64)
+    else:
+        raise ValidationError("The displacement field should be either a .nii.gz or a .npz file.")
+    return disp
