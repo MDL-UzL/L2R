@@ -1,4 +1,5 @@
-"""Evaluation Script for the L2R Challenge.
+"""
+Evaluation Script for the L2R Challenge.
 For details, please visit: https://github.com/MDL-UzL/L2R/
 """
 
@@ -28,12 +29,21 @@ def evaluate_L2R(INPUT_PATH, GT_PATH, OUTPUT_PATH, JSON_PATH, verbose=False):
 
     # Check if files are available beforehand
     for idx, pair in enumerate(eval_pairs):
-        disp_name = f"disp_{pair['fixed'][-16:-12]}_{pair['moving'][-16:-12]}.nii.gz"
-        disp_path = os.path.join(INPUT_PATH, disp_name)
-        if os.path.isfile(disp_path):
+        # allow short displacement file names when 
+        # a) same modalities
+        # b) modality is the same or modality is 0 and 1
+        fix_subject, fix_modality = pair['fixed'][-16:-12], pair['fixed'][-11:-7]
+        mov_subject, mov_modality = pair['moving'][-16:-12], pair['moving'][-11:-7]
+        disp_lazy_name = f"disp_{fix_subject}_{mov_subject}.nii.gz"
+        disp_full_name = f"disp_{fix_subject}_{fix_modality}_{mov_subject}_{mov_modality}.nii.gz"
+
+        if (fix_modality == mov_modality or (fix_modality == '0000' and mov_modality == '0001')):
+            if os.path.isfile(os.path.join(INPUT_PATH, disp_lazy_name)):
+                continue
+        elif os.path.isfile(os.path.join(INPUT_PATH, disp_full_name)):
             continue
-        else:
-            raise_missing_file_error(disp_name)
+        raise_missing_file_error(disp_lazy_name)
+
     if verbose:
         print(
             f"Evaluate {len_eval_pairs} cases for: {[tmp['name'] for tmp in data['evaluation_methods']]}")
@@ -42,20 +52,37 @@ def evaluate_L2R(INPUT_PATH, GT_PATH, OUTPUT_PATH, JSON_PATH, verbose=False):
     cases_results = {}
     for idx, pair in enumerate(eval_pairs):
         case_results = {}
-        pairs_string = [pair['fixed'][-16:-12], pair['moving'][-16:-12]]
+        fix_subject, fix_modality = pair['fixed'][-16:-12], pair['fixed'][-11:-7]
+        mov_subject, mov_modality = pair['moving'][-16:-12], pair['moving'][-11:-7]
+
+        #if (fix_subject == mov_subject or (fix_modality == '0000' and mov_modality == '0001')):
+            # use keypoi
+
+        #pairs_string = [pair['fixed'][-16:-12], pair['moving'][-16:-12]]
 
         fix_label_path = os.path.join(
             GT_PATH, pair['fixed'].replace('images', 'labels'))
         mov_label_path = os.path.join(
             GT_PATH, pair['moving'].replace('images', 'labels'))
         # with nii.gz
-        disp_path = os.path.join(INPUT_PATH, 'disp_{}_{}'.format(
-            pairs_string[0], pairs_string[1]+'.nii.gz'))
-        disp_field = nib.load(disp_path).get_fdata()
 
+
+        #disp_path = os.path.join(INPUT_PATH, 'disp_{}_{}'.format(
+        #    fix_subject, mov_subject+'.nii.gz'))
+
+        # allow short displacement file names when 
+        # a) same modalities
+        # b) modality is the same or modality is 0 and 1
+        disp_lazy_name = f"disp_{fix_subject}_{mov_subject}.nii.gz"
+        disp_full_name = f"disp_{fix_subject}_{fix_modality}_{mov_subject}_{mov_modality}.nii.gz"
+
+        if (fix_modality == mov_modality or (fix_modality == '0000' and mov_modality == '0001')) and os.path.isfile(os.path.join(INPUT_PATH, disp_lazy_name)):
+            disp_field = nib.load(os.path.join(INPUT_PATH, disp_lazy_name)).get_fdata() 
+        else:
+            disp_field = nib.load(os.path.join(INPUT_PATH, disp_full_name)).get_fdata()
         shape = np.array(disp_field.shape)
         if not np.all(shape == expected_shape):
-            raise_shape_error(disp_name, shape, expected_shape)
+            raise_shape_error(f'{fix_subject}_{fix_modality}-->{mov_subject}_{mov_modality}', shape, expected_shape) ##error here
 
         # load neccessary files
         if any([True for eval_ in ['tre'] if eval_ in evaluation_methods_metrics]):
@@ -122,10 +149,22 @@ def evaluate_L2R(INPUT_PATH, GT_PATH, OUTPUT_PATH, JSON_PATH, verbose=False):
             # TRE
             if 'tre' == _eval['metric']:
                 destination = _eval['dest']
-                lms_fix_path = os.path.join(GT_PATH, pair['fixed'].replace(
-                    'images', destination).replace('.nii.gz', '.csv'))
-                lms_mov_path = os.path.join(GT_PATH, pair['moving'].replace(
-                    'images', destination).replace('.nii.gz', '.csv'))
+                ## corrfield correspondences are calculated for corresponding images
+                ## therefore, if modalities are different, the keypoint paths have to be changed
+                ## normally : keypointsTr / keypointsTs
+                ## then: keypoints01Tr / keypoints02Tr 
+                if destination == 'keypoints' and not (fix_modality == mov_modality or (fix_modality == '0000' and mov_modality == '0001')):
+                    modality_suffix = sorted([int(fix_modality), int(mov_modality)])
+                    modality_suffix = str(modality_suffix[0]) + str(modality_suffix[1])
+                    lms_fix_path = os.path.join(GT_PATH, pair['fixed'].replace(
+                    'images', destination+modality_suffix).replace('.nii.gz', '.csv'))
+                    lms_mov_path = os.path.join(GT_PATH, pair['moving'].replace(
+                    'images', destination+modality_suffix).replace('.nii.gz', '.csv'))
+                else:
+                    lms_fix_path = os.path.join(GT_PATH, pair['fixed'].replace(
+                        'images', destination).replace('.nii.gz', '.csv'))
+                    lms_mov_path = os.path.join(GT_PATH, pair['moving'].replace(
+                        'images', destination).replace('.nii.gz', '.csv'))
                 fix_lms = np.loadtxt(lms_fix_path, delimiter=',')
                 mov_lms = np.loadtxt(lms_mov_path, delimiter=',')
                 tre = compute_tre(fix_lms, mov_lms, disp_field,
@@ -134,11 +173,11 @@ def evaluate_L2R(INPUT_PATH, GT_PATH, OUTPUT_PATH, JSON_PATH, verbose=False):
                 detailed = tre.tolist()
                 case_results[_name] = {'mean': mean, 'detailed': detailed}
 
-        cases_results[pairs_string[0]+'-->'+pairs_string[1]] = case_results
-
+        #cases_results[pairs_string[0]+'-->'+pairs_string[1]] = case_results
+        cases_results[f'{fix_subject}_{fix_modality}-->{mov_subject}_{mov_modality}'] = case_results
         if verbose:
             print(
-                f"case_results [{idx}] [{pair['fixed'][-16:-12]} --> {pair['moving'][-16:-12]}]:")
+                f"case_results [{idx}] [{fix_subject}_{fix_modality}-->{mov_subject}_{mov_modality}']:")
             for k, v in case_results.items():
                 print(f"\t{k: <{20}}: {v['mean']:.5f}")
 
