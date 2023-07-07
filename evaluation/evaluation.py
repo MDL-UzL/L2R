@@ -10,6 +10,7 @@ import argparse
 import nibabel as nib
 from utils import *
 from surface_distance import *
+from collections import OrderedDict
 
 
 def evaluate_L2R(INPUT_PATH, GT_PATH, OUTPUT_PATH, JSON_PATH, verbose=False):
@@ -199,10 +200,10 @@ def evaluate_L2R(INPUT_PATH, GT_PATH, OUTPUT_PATH, JSON_PATH, verbose=False):
                                           '30': np.quantile(all_means_metric, .3)}
 
     with open(os.path.join(OUTPUT_PATH), 'w', encoding='utf-8') as f:
-        json.dump({'name': name,
+        json.dump(OrderedDict({'name': name,
                    'aggregates': aggregated_results,
                    'cases': cases_results,
-                   'eval_version': '2.0'}, f, indent=4, allow_nan=True)
+                   'eval_version': '2.0'}), f, indent=4, allow_nan=True)
 
 
 if __name__ == "__main__":

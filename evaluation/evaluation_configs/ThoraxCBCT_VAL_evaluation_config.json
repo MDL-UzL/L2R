@@ -9,6 +9,13 @@
             "name": "TRE_kp",
             "metric": "tre",
             "dest": "keypoints" 
+        },
+        {
+            "name": "DSC",
+            "metric": "dice",
+            "labels": [
+                1
+            ]
         }
     ],
     "expected_shape": [
