@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
-
-docker build -t l2rtest "$SCRIPTPATH"
+echo "Building docker image..."
+docker build --platform linux/amd64 -t l2rtest "$SCRIPTPATH"
