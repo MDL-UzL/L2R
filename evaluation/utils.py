@@ -100,8 +100,8 @@ def load_disp(fname):
         disp = nib.load(fname).get_fdata()
     elif fname.endswith('.npz'):
         disp = np.load(fname, allow_pickle=True)['arr_0']
-        if disp.dtype != np.float64:
-            disp = disp.astype(np.float64)
+        if disp.dtype != np.float32:
+            disp = disp.astype(np.float32)
     else:
         raise ValidationError("The displacement field should be either a .nii.gz or a .npz file.")
     return disp
