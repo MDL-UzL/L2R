@@ -1,0 +1,55 @@
+{
+    "task_name": "ThoraxCBCT",
+    "evaluation_methods": [
+        {
+            "name": "LogJacDetStd",
+            "metric": "sdlogj"
+        },
+        {
+            "name": "TRE_kp",
+            "metric": "tre",
+            "dest": "keypoints" 
+        },
+        {
+            "name": "DSC",
+            "metric": "dice",
+            "labels": [
+                1
+            ]
+        }
+    ],
+    "expected_shape": [
+        390,
+        280,
+        300,
+        3
+    ],
+    "eval_pairs": [
+        {
+            "fixed": "./imagesTr/ThoraxCBCT_0011_0001.nii.gz",
+            "moving": "./imagesTr/ThoraxCBCT_0011_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTr/ThoraxCBCT_0012_0001.nii.gz",
+            "moving": "./imagesTr/ThoraxCBCT_0012_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTr/ThoraxCBCT_0013_0001.nii.gz",
+            "moving": "./imagesTr/ThoraxCBCT_0013_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTr/ThoraxCBCT_0011_0002.nii.gz",
+            "moving": "./imagesTr/ThoraxCBCT_0011_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTr/ThoraxCBCT_0012_0002.nii.gz",
+            "moving": "./imagesTr/ThoraxCBCT_0012_0000.nii.gz"
+        },
+        {
+            "fixed": "./imagesTr/ThoraxCBCT_0013_0002.nii.gz",
+            "moving": "./imagesTr/ThoraxCBCT_0013_0000.nii.gz"
+        }
+    ],
+    "eval_config_version": 0.2,
+    "masked_evaluation": false
+}

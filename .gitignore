@@ -6,6 +6,7 @@ testing_debug
 **/**/outputs/
 *to_delete*
 *todelete*
+**/LungCT_VAL/
 
 # Byte-compiled / optimized / DLL files
 **/__pycache__/
@@ -214,3 +215,4 @@ examples/submission/zerofield/out/disp_0140_0140.nii.gz
 examples/submission/zerofield_test/q.txt
 evaluation/test.ipynb
 .vscode/settings.json
+LungCT_VAL/imagesTr/LungCT_0001_0000.nii.gz
