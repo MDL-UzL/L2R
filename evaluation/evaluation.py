@@ -19,8 +19,15 @@ def evaluate_L2R(INPUT_PATH, GT_PATH, OUTPUT_PATH, JSON_PATH, verbose=False):
 
     name = data['task_name']
     expected_shape = np.array(data['expected_shape'])
-    evaluation_methods_metrics = [tmp['metric']
-                                  for tmp in data['evaluation_methods']]
+
+    #check if metrics are well-defined
+    if len(set([x['name'] for x in data['evaluation_methods']])) != len([x['name'] for x in data['evaluation_methods']]):
+        raise ValueError("Evaluation method names have to be unique.")
+
+    metrics_dict = {x['name']: x for x in data['evaluation_methods']}
+    evaluation_methods_metrics = [x['metric'] for x in metrics_dict.values()]
+
+    
     if 'masked_evaluation' in data:
         use_mask = data['masked_evaluation']
     else:
@@ -188,22 +195,33 @@ def evaluate_L2R(INPUT_PATH, GT_PATH, OUTPUT_PATH, JSON_PATH, verbose=False):
                 print(f"\t{k: <{20}}: {v['mean']:.5f}")
 
     aggregated_results = {}
-    metrics = list(list(cases_results.values())[2].keys())
-    for metric in metrics:
+
+    for metric_name in metrics_dict.keys():
+
         for k, v in cases_results.items():
 
             # calculate mean of all cases
             all_means_metric = np.array(
-                [cases_results[k][metric]['mean'] for k in cases_results.keys()])
-            aggregated_results[metric] = {'mean': all_means_metric.mean(),
+                [cases_results[k][metric_name]['mean'] for k in cases_results.keys()])
+            aggregated_results[metric_name] = {'mean': all_means_metric.mean(),
                                           'std': all_means_metric.std(),
-                                          '30': np.quantile(all_means_metric, .3)}
+                                          ## if metric in [sdlogj, tre] quantile 0.7
+                                          ## it metric in [dice, hd95] quantile 0.3
+                                         '30': np.quantile(all_means_metric, .7) if metrics_dict[metric_name]['metric'] in ['sdlogj', 'tre'] else np.quantile(all_means_metric, .3)}
+                                         
+    if verbose:
+        # print aggregated results
+        print("\n aggregated_results:")
+        for k, v in aggregated_results.items():
+            print(f"\t{k: <{20}}: {v['mean']:.5f} +- {v['std']:.5f} | 30%: {v['30']:.5f}")
+
 
     with open(os.path.join(OUTPUT_PATH), 'w', encoding='utf-8') as f:
         json.dump(OrderedDict({'name': name,
                    'aggregates': aggregated_results,
                    'cases': cases_results,
                    'eval_version': '2.0'}), f, indent=4, allow_nan=True)
+    
 
 
 if __name__ == "__main__":
