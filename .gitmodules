@@ -1,0 +1,3 @@
+[submodule "evaluation/surface-distance"]
+	path = evaluation/surface-distance
+	url = https://github.com/google-deepmind/surface-distance.git
