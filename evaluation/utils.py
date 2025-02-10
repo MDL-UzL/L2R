@@ -1,6 +1,7 @@
 import numpy as np
 import scipy.ndimage
 import nibabel as nib
+import os
 from evalutils.exceptions import ValidationError
 from scipy.ndimage import map_coordinates
 from surface_distance import *
@@ -92,6 +93,12 @@ def raise_shape_error(fname, shape, expected_shape):
 
 
 ##### load displacement field #####
+
+def file_exists(base_path, filename):
+    """Check if either .npz or .nii.gz file exists."""
+    return any(os.path.isfile(os.path.join(base_path, f"{filename}{ext}")) for ext in ['.npz', '.nii.gz'])
+
+
 def load_disp(fname):
     ##if .nii.gz use nibabel
     ##if .npy use numpy
@@ -99,7 +106,12 @@ def load_disp(fname):
     if fname.endswith('.nii.gz'):
         disp = nib.load(fname).get_fdata()
     elif fname.endswith('.npz'):
-        disp = np.load(fname, allow_pickle=True)['arr_0']
+        disp_load = np.load(fname, allow_pickle=True)
+        # Check if more than one array is saved in the .npz file
+        if len(disp_load.files) > 1:
+            raise ValidationError("The .npz file should contain only one array.")
+        #Load the displacement field with arbitrary key
+        disp = disp_load[disp_load.files[0]]
         if disp.dtype != np.float32:
             disp = disp.astype(np.float32)
     else:

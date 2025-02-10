@@ -8,6 +8,7 @@ import os
 import json
 import argparse
 import nibabel as nib
+from datetime import datetime
 from utils import *
 from surface_distance import *
 from collections import OrderedDict
@@ -17,50 +18,64 @@ def evaluate_L2R(INPUT_PATH, GT_PATH, OUTPUT_PATH, JSON_PATH, verbose=False):
     with open(JSON_PATH, 'r', encoding='utf-8') as f:
         data = json.load(f)
 
-    name = data['task_name']
-    expected_shape = np.array(data['expected_shape'])
-
     #check if metrics are well-defined
     if len(set([x['name'] for x in data['evaluation_methods']])) != len([x['name'] for x in data['evaluation_methods']]):
         raise ValueError("Evaluation method names have to be unique.")
 
+    # Get necessary information from config file
+    name = data['task_name']
+    expected_shape = np.array(data['expected_shape'])
     metrics_dict = {x['name']: x for x in data['evaluation_methods']}
     evaluation_methods_metrics = [x['metric'] for x in metrics_dict.values()]
-
-    
+    eval_pairs = data['eval_pairs']
+    len_eval_pairs = len(eval_pairs)
     if 'masked_evaluation' in data:
         use_mask = data['masked_evaluation']
     else:
         use_mask = False
-    eval_pairs = data['eval_pairs']
-    len_eval_pairs = len(eval_pairs)
 
-    # Check if files are available beforehand
-    for idx, pair in enumerate(eval_pairs):
-        # allow short displacement file names when 
-        # a) same modalities
-        # b) modality is the same or modality is 0 and 1
+    # Check if all files are available
+    missing_files = []
+    available_files = {}
+    
+    for pair in eval_pairs:
         fix_subject, fix_modality = pair['fixed'][-16:-12], pair['fixed'][-11:-7]
         mov_subject, mov_modality = pair['moving'][-16:-12], pair['moving'][-11:-7]
 
-        ##allow for npz files
+        disp_short_name = f"disp_{fix_subject}_{mov_subject}"
+        disp_long_name = f"disp_{fix_subject}_{fix_modality}_{mov_subject}_{mov_modality}"
 
-        disp_lazy_name = f"disp_{fix_subject}_{mov_subject}"
-        disp_full_name = f"disp_{fix_subject}_{fix_modality}_{mov_subject}_{mov_modality}"
+        short_name_allowed = (fix_modality == '0000' and mov_modality == '0001')
 
-        if (fix_modality == mov_modality or (fix_modality == '0000' and mov_modality == '0001')):
-            if os.path.isfile(os.path.join(INPUT_PATH, disp_lazy_name+'.npz')) or os.path.isfile(os.path.join(INPUT_PATH, disp_lazy_name+'.nii.gz')):
-                continue
-        elif os.path.isfile(os.path.join(INPUT_PATH, disp_full_name+'.npz')) or os.path.isfile(os.path.join(INPUT_PATH, disp_full_name+'.nii.gz')):
-            continue
-        raise_missing_file_error(disp_full_name+'[.nii.gz/.npz]')
+        found_file = None
 
+        # Check short name if allowed
+        if short_name_allowed and file_exists(INPUT_PATH, disp_short_name):
+            found_file = disp_short_name
+
+        # Check long name (always allowed)
+        if found_file is None and file_exists(INPUT_PATH, disp_long_name):
+            found_file = disp_long_name
+
+        if found_file:
+            available_files[(fix_subject, fix_modality, mov_subject, mov_modality)] = found_file
+        else:
+            missing_files.append(f"{disp_long_name} (or {disp_short_name} if allowed)")
+
+    if missing_files:
+        raise ValueError(f"Missing files: {missing_files}")
+
+
+
+    ### Evaluation
     if verbose:
         print(
             f"Evaluate {len_eval_pairs} cases for: {[tmp['name'] for tmp in data['evaluation_methods']]}")
-    if use_mask and verbose:
-        print("Will use masks for evaluation.")
+        if use_mask:
+            print("Will use masks for evaluation.")
     cases_results = {}
+
+
     for idx, pair in enumerate(eval_pairs):
         case_results = {}
         fix_subject, fix_modality = pair['fixed'][-16:-12], pair['fixed'][-11:-7]
@@ -70,27 +85,18 @@ def evaluate_L2R(INPUT_PATH, GT_PATH, OUTPUT_PATH, JSON_PATH, verbose=False):
             GT_PATH, pair['fixed'].replace('images', 'labels'))
         mov_label_path = os.path.join(
             GT_PATH, pair['moving'].replace('images', 'labels'))
-        # with nii.gz
+       
 
-        # allow short displacement file names when 
-        # a) same modalities
-        # b) modality is the same or modality is 0 and 1
+        disp_filename = available_files.get((fix_subject, fix_modality, mov_subject, mov_modality))
 
-        disp_lazy_name = f"disp_{fix_subject}_{mov_subject}"
-        disp_full_name = f"disp_{fix_subject}_{fix_modality}_{mov_subject}_{mov_modality}"
+        if disp_filename:
+            for ext in ['.npz', '.nii.gz']: 
+                full_path = os.path.join(INPUT_PATH, disp_filename + ext)
+                if os.path.isfile(full_path):
+                    disp_field = load_disp(full_path)
+                    break 
 
-        corrfield_kpts_condition = (fix_modality == mov_modality or (fix_modality == '0000' and mov_modality == '0001'))
-
-        if corrfield_kpts_condition:
-            for file in [disp_lazy_name+'.npz', disp_lazy_name+'.nii.gz']:
-                if os.path.isfile(os.path.join(INPUT_PATH, file)):
-                    disp_field = load_disp(os.path.join(INPUT_PATH, file))
-                    break
-        else:
-            for file in [disp_full_name+'.npz', disp_full_name+'.nii.gz']:
-                if os.path.isfile(os.path.join(INPUT_PATH, file)):
-                    disp_field = load_disp(os.path.join(INPUT_PATH, file))
-                    break
+        
 
         shape = np.array(disp_field.shape)
         if not np.all(shape == expected_shape):
@@ -160,32 +166,29 @@ def evaluate_L2R(INPUT_PATH, GT_PATH, OUTPUT_PATH, JSON_PATH, verbose=False):
 
             # TRE
             if 'tre' == _eval['metric']:
-                destination = _eval['dest']
+                def get_keypoint_path(image_path):
+                    return os.path.join(GT_PATH, image_path.replace('images', destination).replace('.nii.gz', '.csv'))
                 ## corrfield correspondences are calculated for corresponding images
                 ## therefore, if modalities are different, the keypoint paths have to be changed
                 ## if same modalities : keypointsTr / keypointsTs
                 ## if different modalities: keypoints01Tr / keypoints02Tr 
 
-                if destination == 'keypoints' and not (fix_modality == mov_modality or (fix_modality == '0000' and mov_modality == '0001')):
-                    modality_suffix = sorted([int(fix_modality), int(mov_modality)])
-                    modality_suffix = str(modality_suffix[0]) + str(modality_suffix[1])
-                    lms_fix_path = os.path.join(GT_PATH, pair['fixed'].replace(
-                    'images', destination+modality_suffix).replace('.nii.gz', '.csv'))
-                    lms_mov_path = os.path.join(GT_PATH, pair['moving'].replace(
-                    'images', destination+modality_suffix).replace('.nii.gz', '.csv'))
-                else:
-                    lms_fix_path = os.path.join(GT_PATH, pair['fixed'].replace(
-                        'images', destination).replace('.nii.gz', '.csv'))
-                    lms_mov_path = os.path.join(GT_PATH, pair['moving'].replace(
-                        'images', destination).replace('.nii.gz', '.csv'))
+                destination = _eval['dest']
+                # If different modalities, adjust keypoint paths
+                if not (fix_modality == mov_modality or (fix_modality == '0000' and mov_modality == '0001')):
+                    modality_suffix = f"{min(fix_modality, mov_modality)}{max(fix_modality, mov_modality)}"
+                    destination += modality_suffix
+
+
+                lms_fix_path = get_keypoint_path(pair['fixed'])
+                lms_mov_path = get_keypoint_path(pair['moving'])
                     
                 fix_lms = np.loadtxt(lms_fix_path, delimiter=',')
                 mov_lms = np.loadtxt(lms_mov_path, delimiter=',')
                 tre = compute_tre(fix_lms, mov_lms, disp_field,
                                   spacing_fix, spacing_mov)
-                mean = tre.mean()
-                detailed = tre.tolist()
-                case_results[_name] = {'mean': mean, 'detailed': detailed}
+
+                case_results[_name] = {'mean': tre.mean(), 'detailed': tre.tolist()}
 
         cases_results[f'{fix_subject}_{fix_modality}<--{mov_subject}_{mov_modality}'] = case_results
         if verbose:
@@ -215,6 +218,8 @@ def evaluate_L2R(INPUT_PATH, GT_PATH, OUTPUT_PATH, JSON_PATH, verbose=False):
         for k, v in aggregated_results.items():
             print(f"\t{k: <{20}}: {v['mean']:.5f} +- {v['std']:.5f} | 30%: {v['30']:.5f}")
 
+    if os.path.isdir(OUTPUT_PATH):
+        OUTPUT_PATH = os.path.join(OUTPUT_PATH, datetime.now().strftime('%Y%m%d_%H%M')+'.json')
 
     with open(os.path.join(OUTPUT_PATH), 'w', encoding='utf-8') as f:
         json.dump(OrderedDict({'name': name,
@@ -222,6 +227,7 @@ def evaluate_L2R(INPUT_PATH, GT_PATH, OUTPUT_PATH, JSON_PATH, verbose=False):
                    'cases': cases_results,
                    'eval_version': '2.0'}), f, indent=4, allow_nan=True)
     
+    print(f"Results saved to: {OUTPUT_PATH}")
 
 
 if __name__ == "__main__":
