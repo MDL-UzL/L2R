@@ -45,6 +45,7 @@ def evaluate_L2R(INPUT_PATH, GT_PATH, OUTPUT_PATH, JSON_PATH, verbose=False):
         disp_short_name = f"disp_{fix_subject}_{mov_subject}"
         disp_long_name = f"disp_{fix_subject}_{fix_modality}_{mov_subject}_{mov_modality}"
 
+        #Allow short handles 
         short_name_allowed = (fix_modality == '0000' and mov_modality == '0001')
 
         found_file = None

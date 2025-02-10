@@ -100,9 +100,6 @@ def file_exists(base_path, filename):
 
 
 def load_disp(fname):
-    ##if .nii.gz use nibabel
-    ##if .npy use numpy
-    ##else raise error
     if fname.endswith('.nii.gz'):
         disp = nib.load(fname).get_fdata()
     elif fname.endswith('.npz'):
